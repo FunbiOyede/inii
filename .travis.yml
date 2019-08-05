@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+- 12.6.0
+cache: yarn
+
+install:
+#install dependecies
+  - yarn install
+
+script:
+# build process
+- yarn test
+- yarn run build
