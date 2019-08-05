@@ -11,3 +11,11 @@ script:
 # build process
 - yarn test
 - yarn run build
+
+deploy:
+  provider: heroku
+  api_key:
+    secure:  0b254b09-7f84-45ff-8a00-3e5e9269fb3c
+  app: inii
+  on:
+   repo: FunbiOyede/inii
