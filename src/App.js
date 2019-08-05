@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>hellow.js</code> and save to reload.
+          welcome to inii bookmarks
         </p>
         <a
           className="App-link"
