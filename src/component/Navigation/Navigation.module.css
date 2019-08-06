@@ -1,0 +1,38 @@
+.Header {
+    width: 100%;
+    height: 60px;
+    background: red;
+}
+
+
+.Input {
+    text-align: center
+}
+.navItems {
+    float: right;
+}
+
+.navItems li {
+    text-decoration: none;
+    display: inline;
+    text-decoration-style: none;
+    margin-left: 12px
+}
+
+
+.navItems li a{
+    text-decoration: none;
+}
+
+
+.Logo{
+    float: left;
+
+}
+
+.Logo a {
+    text-decoration: none;
+    position: relative;
+    top: 20px;
+    left: 10px;
+}
