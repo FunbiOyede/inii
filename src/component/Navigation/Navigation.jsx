@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Menu } from 'antd';
+import { Link } from 'react-router-dom'
 import styles from './Navigation.module.css'
 
 const Navigation = (props) => (
@@ -9,13 +9,10 @@ const Navigation = (props) => (
                 <div className={styles.Logo}>
                 <a href="/">logo</a>
                 </div>
-               
-                <form className={styles.Input}>
-                    <input type="text" name="" id=""/>
-                </form>
                     <ul className={styles.navItems}>
-                    <li><a href="/">Add Bookmark</a></li>
-                    <li><a href="/">UserProfile</a></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/AddBookmark">Add Bookmark</Link></li>
+                        <li><Link to="/profile">UserProfile</Link></li>
                     </ul>
             </div>
            
