@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import styles from './Navigation.module.css'
+import { Link } from 'react-router-dom';
+import styles from './Navigation.module.css';
 
 const Navigation = (props) => (
     <header className={styles.Header}>
         <nav>
             <div>
                 <div className={styles.Logo}>
-                <a href="/">logo</a>
+                <Link href="/">logo</Link>
                 </div>
                     <ul className={styles.navItems}>
                         <li><Link to="/">Home</Link></li>
