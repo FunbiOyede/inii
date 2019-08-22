@@ -7,7 +7,7 @@ const Navigation = (props) => (
         <nav>
             <div>
                 <div className={styles.Logo}>
-                <Link href="/">logo</Link>
+                <Link to="/">logo</Link>
                 </div>
                     <ul className={styles.navItems}>
                         <li><Link to="/">Home</Link></li>
