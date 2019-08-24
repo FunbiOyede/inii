@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-
+import axios from '../../axios.config';
 class AddBookmark extends Component{
 
     state = {
         title:"",
         description:"",
         url:"",
-        tag:""
+        tag:"",
+        isPosted:false
     }
 
     //getting input from multiple inputs
@@ -15,6 +16,34 @@ class AddBookmark extends Component{
          ...this.state,
          [e.target.name]:e.target.value
        })
+    }
+
+    SubmitBookmark = (e) =>{
+        e.preventDefault();
+        this.setState({
+            title:"",
+            description:"",
+            url:"",
+            tag:""
+        })
+        const id = Math.floor(Math.random() * 10);
+        const bookmark  = {
+            Id:id,
+            Title:this.state.title,
+            Description:this.state.description,
+            Url:this.state.url,
+            Tag:this.state.tag
+        }
+        axios.post('/bookmark.json',bookmark)
+        .then((res) =>{
+            this.setState({
+                isPosted:true
+            })
+        })
+       .catch((err)=>{
+           console.log(err)
+       })
+
     }
     render(){
         return(
@@ -26,7 +55,8 @@ class AddBookmark extends Component{
                     <input  value={this.state.description} onChange ={this.getTitle} type="text" name="description" id="" placeholder="description"/>
                     <input  value={this.state.url}  onChange ={this.getTitle} type="url" name="url" id="" placeholder="url"/>
                     <input value={this.state.tag}  onChange ={this.getTitle} type="text" name="tag" id="" placeholder="tag"/>
-                    <button>Submit To inii</button>
+                    <button onClick={this.SubmitBookmark}>Submit To inii</button>
+                    {this.state.isPosted ? <p style={{color:'green'}}>Bookmark added go back to home page to see bookmark</p> : null}
                 </form>
             </div>
         );
