@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Loader from '../Loader/Loader';
 import axios from '../../axios.config';
 import Bk from '../../component/Bookmarks/Bk';
-import styles from './Home.module.css'
+// import styles from './Home.module.css'
 
 class Home extends Component{
 
@@ -54,6 +54,7 @@ class Home extends Component{
         })
     }
 
+    // delete bookamrk
     
     render(){
         return(
@@ -63,7 +64,7 @@ class Home extends Component{
                       {this.state.isLoad ? null : <Loader/>}
                         <div>
                             {this.state.isFetched ? <Bk isAdd Bookmark={this.state.Bookmark}/> : <p >Add bookmark to get started</p>}
-                            
+                            {this.state.error ? <p>Failed to load bookmarks</p> : null}
                         </div>
                     </div>
                     

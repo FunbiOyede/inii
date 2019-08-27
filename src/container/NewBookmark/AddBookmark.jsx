@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from '../../axios.config';
+import { Redirect } from 'react-router-dom';
 class AddBookmark extends Component{
 
     state = {
@@ -7,7 +8,9 @@ class AddBookmark extends Component{
         description:"",
         url:"",
         tag:"",
-        isPosted:false
+        isPosted:false,
+        error: false,
+        errorMessage:""
     }
 
     //getting input from multiple inputs
@@ -41,14 +44,22 @@ class AddBookmark extends Component{
             })
         })
        .catch((err)=>{
-           console.log(err)
+           
+            this.setState({
+                error:true
+            })
        })
 
     }
+
+
     render(){
+
+
         return(
 
             <div>
+                {this.state.isPosted ? <Redirect to='/' /> : null}
                 <h3>Add Bookmark</h3>
                 <form>
                     <input value={this.state.title} onChange ={this.getTitle} type="" name="title" id="" placeholder="title"/>
@@ -56,8 +67,9 @@ class AddBookmark extends Component{
                     <input  value={this.state.url}  onChange ={this.getTitle} type="url" name="url" id="" placeholder="url"/>
                     <input value={this.state.tag}  onChange ={this.getTitle} type="text" name="tag" id="" placeholder="tag"/>
                     <button onClick={this.SubmitBookmark}>Submit To inii</button>
-                    {this.state.isPosted ? <p style={{color:'green'}}>Bookmark added go back to home page to see bookmark</p> : null}
+                   
                 </form>
+                {this.state.error ? <p style={{color:'red'}}>Error adding bookmarks try again</p> :  null }
             </div>
         );
     }

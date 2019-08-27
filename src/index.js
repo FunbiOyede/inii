@@ -6,11 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
 
 
-// intercept the unwanted kurama chakra
+//interceptors
 
 axios.interceptors.request.use(request =>{
-   
-    //must returned request or else you block the operations
     return request
 }, err => {
     console.log(err);
@@ -19,8 +17,6 @@ axios.interceptors.request.use(request =>{
 
 
 axios.interceptors.response.use(response =>{
-   
-    //must be returned request or else you block the operations
     return response
 }, err  =>{
     console.log(err);

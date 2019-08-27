@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import axios from '../../axios.config';
 
-const Display = (props) =>{
-    // console.log(props)
-    return(
-        <div>
-            <h4>{props.Title}</h4>
-            <p>{props.description}</p>
-            <em>Tag:{props.Tag}</em>
-            <a href={props.Url}>View</a>
-            <button>Delete</button>
+class Display extends Component{
+
+
+    deleteBookmark = () => {
+           axios.delete('/bookmark.json',this.props.id)
+           .then((res) => {
+               console.log(res)
+           })
+           .catch((err) =>{
+            console.log(err)
+           })
+    }
+    render(){
+        return(
+
+            <div>
+               
+            <h4>{this.props.Title}</h4>
+            <p>{this.props.description}</p>
+            <em>Tag:{this.props.Tag}</em>
+            <a href={this.props.Url}>View</a>
+            <button onClick={this.deleteBookmark}>Delete</button>
         </div>
-    );
+        );
+    }
 }
+
 export default Display
