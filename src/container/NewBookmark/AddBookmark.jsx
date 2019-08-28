@@ -23,12 +23,7 @@ class AddBookmark extends Component{
 
     SubmitBookmark = (e) =>{
         e.preventDefault();
-        this.setState({
-            title:"",
-            description:"",
-            url:"",
-            tag:""
-        })
+      
         const id = Math.floor(Math.random() * 10);
         const bookmark  = {
             Id:id,
@@ -49,6 +44,14 @@ class AddBookmark extends Component{
                 error:true
             })
        })
+
+
+       this.setState({
+        title:"",
+        description:"",
+        url:"",
+        tag:""
+    })
 
     }
 

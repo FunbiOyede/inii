@@ -6,25 +6,24 @@ import Bk from '../../component/Bookmarks/Bk';
 
 class Home extends Component{
 
-
-    state = {
-        isLoad:false,
-        Bookmark:[],
-        isFetched:false,
-        isAdd:false,
-        error:false
+    constructor(props){
+        super(props);
+        this.state = {
+            isLoad:false,
+            Bookmark:[],
+            isFetched:false,
+            isAdd:false,
+            error:false
+        }
+       
     }
+
+    
 
   
     
     // handles spinner
-    componentWillMount(){
-        setTimeout(() =>{
-            this.setState({
-                isLoad:true
-            })
-        },4000)
-    }
+   
 
     
 
@@ -32,6 +31,13 @@ class Home extends Component{
         // fetch bookmarks from storage
       
      
+        setTimeout(() =>{
+            this.setState({
+                isLoad:true
+            })
+        },4000)
+
+
         axios.get('/bookmark.json')
         .then((res)=>{
     
@@ -51,10 +57,30 @@ class Home extends Component{
             this.setState({
                 error:true
             })
+            console.log(err)
         })
     }
 
     // delete bookamrk
+    
+       deleteBookmark = (id) => {
+       
+      
+        let copyBookmark = [...this.state.Bookmark];
+        copyBookmark.splice(id,1);
+        this.setState({
+            Bookmark:copyBookmark
+        })
+   
+
+            axios.delete('/bookmark.json',id)
+           .then((res) => {
+               console.log(res)
+           })
+           .catch((err) =>{
+            console.log(err)
+           })
+    }
     
     render(){
         return(
@@ -63,7 +89,7 @@ class Home extends Component{
                     <div>
                       {this.state.isLoad ? null : <Loader/>}
                         <div>
-                            {this.state.isFetched ? <Bk isAdd Bookmark={this.state.Bookmark}/> : <p >Add bookmark to get started</p>}
+                            {this.state.isFetched ? <Bk isAdd Bookmark={this.state.Bookmark}   deleteBookmark={this.deleteBookmark}/> : <p >Add bookmark to get started</p>}
                             {this.state.error ? <p>Failed to load bookmarks</p> : null}
                         </div>
                     </div>

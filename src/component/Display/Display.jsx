@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
-import axios from '../../axios.config';
+// import axios from '../../axios.config';
 
 class Display extends Component{
 
 
-    deleteBookmark = () => {
-           axios.delete('/bookmark.json',this.props.id)
-           .then((res) => {
-               console.log(res)
-           })
-           .catch((err) =>{
-            console.log(err)
-           })
-    }
+   
     render(){
         return(
 
@@ -22,7 +14,7 @@ class Display extends Component{
             <p>{this.props.description}</p>
             <em>Tag:{this.props.Tag}</em>
             <a href={this.props.Url}>View</a>
-            <button onClick={this.deleteBookmark}>Delete</button>
+            <button onClick={() =>this.props.deleteBookmark(this.props.id)}>Delete</button>
         </div>
         );
     }
