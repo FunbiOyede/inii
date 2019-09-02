@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-// import Layout from "../Layout/Layout";
+import styles from "./LandingPage.module.css";
 
 class LandingPage extends Component {
   toMainPage = () => {
     this.props.history.push("/home");
   };
+
   render() {
     return (
-      <div>
+      <div className={styles.LandingPage}>
         <header>
           <h2>logo</h2>
           <ul>
