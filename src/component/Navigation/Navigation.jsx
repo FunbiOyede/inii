@@ -11,13 +11,19 @@ const Navigation = props => (
         </div>
         <ul className={styles.navItems}>
           <li>
-            <Link to="/home">Home</Link>
+            <Link to="/home" style={{ color: "white" }}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/AddBookmark">Add Bookmark</Link>
+            <Link to="/AddBookmark" style={{ color: "white" }}>
+              Add Bookmark
+            </Link>
           </li>
           <li>
-            <Link to="/profile">UserProfile</Link>
+            <Link to="/profile" style={{ color: "white" }}>
+              UserProfile
+            </Link>
           </li>
         </ul>
       </div>

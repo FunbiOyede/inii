@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "../../axios.config";
 import { Redirect } from "react-router-dom";
 import Navigation from "../../component/Navigation/Navigation";
+import styles from "./AddBookmark.module.css";
 class AddBookmark extends Component {
   state = {
     title: "",
@@ -13,7 +14,7 @@ class AddBookmark extends Component {
     errorMessage: ""
   };
 
-  //getting input from multiple inputs
+  //getting data from multiple inputs
   getTitle = e => {
     this.setState({
       ...this.state,
@@ -58,42 +59,54 @@ class AddBookmark extends Component {
       <div>
         <Navigation />
         {this.state.isPosted ? <Redirect to="/home" /> : null}
-        <h3>Add Bookmark</h3>
-        <form>
-          <input
-            value={this.state.title}
-            onChange={this.getTitle}
-            type=""
-            name="title"
-            id=""
-            placeholder="title"
-          />
-          <input
-            value={this.state.description}
-            onChange={this.getTitle}
-            type="text"
-            name="description"
-            id=""
-            placeholder="description"
-          />
-          <input
-            value={this.state.url}
-            onChange={this.getTitle}
-            type="url"
-            name="url"
-            id=""
-            placeholder="url"
-          />
-          <input
-            value={this.state.tag}
-            onChange={this.getTitle}
-            type="text"
-            name="tag"
-            id=""
-            placeholder="tag"
-          />
-          <button onClick={this.SubmitBookmark}>Submit To inii</button>
-        </form>
+        <h3 style={{ textAlign: "center", fontSize: "30px" }}>Add Bookmark</h3>
+        <div style={{ height: "100%" }}>
+          <form className={styles.BookmarkInput}>
+            <input
+              value={this.state.title}
+              onChange={this.getTitle}
+              type=""
+              name="title"
+              id=""
+              placeholder="title"
+            />
+            <br />
+
+            <input
+              value={this.state.description}
+              onChange={this.getTitle}
+              type="text"
+              name="description"
+              id=""
+              placeholder="description"
+            />
+            <br />
+
+            <input
+              value={this.state.url}
+              onChange={this.getTitle}
+              type="url"
+              name="url"
+              id=""
+              placeholder="url"
+            />
+            <br />
+
+            <input
+              value={this.state.tag}
+              onChange={this.getTitle}
+              type="text"
+              name="tag"
+              id=""
+              placeholder="tag"
+            />
+            <br />
+            <button onClick={this.SubmitBookmark} className={styles.Add}>
+              Submit To inii
+            </button>
+          </form>
+        </div>
+
         {this.state.error ? (
           <p style={{ color: "red" }}>Error adding bookmarks try again</p>
         ) : null}
