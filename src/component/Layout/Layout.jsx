@@ -5,6 +5,7 @@ import Profile from "../Profile/Profile";
 import Home from "../Home/Home";
 import Error from "../Error/Error";
 import LandingPage from "../LandingPage/LandingPage";
+import Signout from "../Signout/Signout";
 
 const Layout = props => (
   <div>
@@ -13,6 +14,7 @@ const Layout = props => (
       <Route path="/home" exact component={Home} />
       <Route path="/AddBookmark" exact component={AddBookmark} />
       <Route path="/profile" exact component={Profile} />
+      <Route path="/Signout" exact component={Signout} />
       <Route component={Error} />
     </Switch>
   </div>

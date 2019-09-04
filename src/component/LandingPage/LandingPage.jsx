@@ -11,7 +11,16 @@ class LandingPage extends Component {
     return (
       <div className={styles.landingPage}>
         <header className={styles.nav}>
-          <h2>inii</h2>
+          <h2
+            style={{
+              letterSpacing: "4px",
+              fontVariant: "small-caps",
+              fontSize: "33px",
+              color: "rgb(48, 45, 45)"
+            }}
+          >
+            inii
+          </h2>
           <ul>
             <li onClick={this.toMainPage} style={{ cursor: "pointer" }}>
               Launch App
@@ -27,7 +36,7 @@ class LandingPage extends Component {
           </div>
 
           <div style={{ textAlign: "center" }}>
-            <button onClick={this.toMainPage}>Get started</button>
+            <button onClick={this.toMainPage}>GET STARTED</button>
           </div>
         </main>
         <footer
@@ -36,7 +45,7 @@ class LandingPage extends Component {
             marginTop: "-80px"
           }}
         >
-          <p>© 2019 Oyede Funbi</p>
+          <p>© 2019 Oluwafunbi</p>
         </footer>
       </div>
     );
