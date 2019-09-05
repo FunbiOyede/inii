@@ -9,7 +9,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoad: false,
+      isLoad: true,
       Bookmark: [],
       isFetched: false,
       isAdd: false,
@@ -20,20 +20,19 @@ class Home extends Component {
   // handles spinner
 
   componentDidMount() {
-    // fetch bookmarks from storage
+    // fetch bookmarks from firebase
 
     setTimeout(() => {
       this.setState({
-        isLoad: true
+        isLoad: false
       });
-    }, 4000);
+    }, 2000);
 
     axios
       .get("/bookmark.json")
       .then(res => {
         let fetchedBookmarks = res.data;
         let bookmarks = Object.values(fetchedBookmarks);
-
         this.setState({
           Bookmark: bookmarks,
           isFetched: true
@@ -68,23 +67,34 @@ class Home extends Component {
   };
 
   render() {
+    let loader = null;
+    if (this.state.isLoad === true) {
+      loader = <Loader />;
+    } else {
+      loader = (
+        <div>
+          {this.state.isFetched ? (
+            <Bk
+              isAdd
+              Bookmark={this.state.Bookmark}
+              deleteBookmark={this.deleteBookmark}
+            />
+          ) : (
+            <p>Add bookmark to get started</p>
+          )}
+          {this.state.error ? <p>Failed to load bookmarks</p> : null}
+        </div>
+      );
+    }
+
     return (
       <div>
         <Navigation />
         <h2>All Bookmarks</h2>
         <div>
-          {this.state.isLoad ? null : <Loader />}
           <div>
-            {this.state.isFetched ? (
-              <Bk
-                isAdd
-                Bookmark={this.state.Bookmark}
-                deleteBookmark={this.deleteBookmark}
-              />
-            ) : (
-              <p>Add bookmark to get started</p>
-            )}
-            {this.state.error ? <p>Failed to load bookmarks</p> : null}
+            {/* for loader */}
+            {loader}
           </div>
         </div>
       </div>
