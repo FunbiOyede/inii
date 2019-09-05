@@ -108,7 +108,9 @@ class AddBookmark extends Component {
         </div>
 
         {this.state.error ? (
-          <p style={{ color: "red" }}>Error adding bookmarks try again</p>
+          <p style={{ color: "#ff0000a3", textAlign: "center" }}>
+            Error adding bookmarks try again, Connect to the internet
+          </p>
         ) : null}
       </div>
     );

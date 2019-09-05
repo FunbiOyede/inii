@@ -13,7 +13,8 @@ class Home extends Component {
       Bookmark: [],
       isFetched: false,
       isAdd: false,
-      error: false
+      error: false,
+      isDeleted: false
     };
   }
 
@@ -32,11 +33,16 @@ class Home extends Component {
       .get("/bookmark.json")
       .then(res => {
         let fetchedBookmarks = res.data;
-        let bookmarks = Object.values(fetchedBookmarks);
-        this.setState({
-          Bookmark: bookmarks,
-          isFetched: true
-        });
+        let bookmarks;
+        if (fetchedBookmarks !== null) {
+          bookmarks = Object.values(fetchedBookmarks);
+          this.setState({
+            Bookmark: bookmarks,
+            isFetched: true
+          });
+        } else {
+          bookmarks = null;
+        }
       })
 
       .catch(err => {
@@ -59,7 +65,9 @@ class Home extends Component {
     axios
       .delete("/bookmark.json", id)
       .then(res => {
-        console.log(res);
+        this.setState({
+          isDeleted: true
+        });
       })
       .catch(err => {
         console.log(err);
@@ -82,7 +90,6 @@ class Home extends Component {
           ) : (
             <p>Add bookmark to get started</p>
           )}
-          {this.state.error ? <p>Failed to load bookmarks</p> : null}
         </div>
       );
     }
@@ -92,9 +99,18 @@ class Home extends Component {
         <Navigation />
         <h2>All Bookmarks</h2>
         <div>
+          {this.state.isDeleted ? (
+            <p style={{ color: "#008000cc" }}>Bookmark successfully deleted</p>
+          ) : null}
           <div>
             {/* for loader */}
-            {loader}
+            {this.state.error ? (
+              <p style={{ color: "#ff0000a3" }}>
+                Failed to load bookmarks connect to the internet{" "}
+              </p>
+            ) : (
+              loader
+            )}
           </div>
         </div>
       </div>
