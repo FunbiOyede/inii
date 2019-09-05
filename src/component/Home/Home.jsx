@@ -3,6 +3,10 @@ import Loader from "../Loader/Loader";
 import axios from "../../axios.config";
 import Bk from "../../component/Bookmarks/Bk";
 import Navigation from "../Navigation/Navigation";
+import { Icon } from "antd";
+
+import { Link } from "react-router-dom";
+import style from "./Home.module.css";
 // import styles from './Home.module.css'
 
 class Home extends Component {
@@ -90,6 +94,11 @@ class Home extends Component {
           ) : (
             <p>Add bookmark to get started</p>
           )}
+          <div>
+            <Link to="/AddBookmark">
+              <Icon type="plus-circle" className={style.AddIcon} />
+            </Link>
+          </div>
         </div>
       );
     }

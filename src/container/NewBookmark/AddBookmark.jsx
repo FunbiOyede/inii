@@ -44,6 +44,7 @@ class AddBookmark extends Component {
         this.setState({
           error: true
         });
+        console.log(err);
       });
 
     this.setState({
