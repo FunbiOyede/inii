@@ -8,6 +8,8 @@
   padding: 10px 0;
   box-sizing: border-box;
   cursor: pointer;
+  z-index: 1;
+  background-color: transparent;
 }
 
 .FirstBar {
@@ -16,6 +18,8 @@
   background-color: white;
   margin-left: 30px;
   margin-bottom: 7px;
+  transition: 0.3s;
+  border-radius: 6px;
 }
 .SecondBar {
   width: 52%;
@@ -23,6 +27,8 @@
   background-color: white;
   margin-left: 30px;
   margin-bottom: 7px;
+  transition: 0.3s;
+  border-radius: 6px;
 }
 
 .ThirdBar {
@@ -31,4 +37,6 @@
   background-color: white;
   margin-left: 30px;
   margin-bottom: 7px;
+  transition: 0.3s;
+  border-radius: 6px;
 }

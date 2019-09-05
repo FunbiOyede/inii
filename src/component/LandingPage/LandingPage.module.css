@@ -60,8 +60,10 @@
     #3c1053,
     #ad5389
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  transition: 0.5s linear;
 }
 
 .Main div button:hover {
-  color: rgb(233, 233, 233);
+  color: white;
+  background: rgb(48, 45, 45);
 }
