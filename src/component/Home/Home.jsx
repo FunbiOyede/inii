@@ -4,7 +4,6 @@ import axios from "../../axios.config";
 import Bk from "../../component/Bookmarks/Bk";
 import Navigation from "../Navigation/Navigation";
 import { Icon } from "antd";
-
 import { Link } from "react-router-dom";
 import style from "./Home.module.css";
 // import styles from './Home.module.css'
@@ -106,7 +105,7 @@ class Home extends Component {
     return (
       <div>
         <Navigation />
-        <h2>All Bookmarks</h2>
+        <h2 style={{ textAlign: "center" }}>All Bookmarks</h2>
         <div>
           {this.state.isDeleted ? (
             <p style={{ color: "#008000cc" }}>Bookmark successfully deleted</p>

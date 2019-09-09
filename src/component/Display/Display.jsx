@@ -1,19 +1,34 @@
 import React, { Component } from "react";
 import { Icon } from "antd";
+import styles from "./Display.module.css";
 
 class Display extends Component {
   render() {
     return (
-      <div>
-        <h4>{this.props.Title}</h4>
-        <p>{this.props.description}</p>
-        <em>Tag:{this.props.Tag}</em>
-        <a href={this.props.Url}>View</a>
-        {/* <button onClick={() =>this.props.deleteBookmark(this.props.id)}>Delete</button> */}
-        <Icon
-          type="delete"
-          onClick={() => this.props.deleteBookmark(this.props.id)}
-        />
+      <div className={styles.Bookmark}>
+        <h4 style={{ textAlign: "center" }}>{this.props.Title}</h4>
+        <p style={{ textAlign: "center" }}>{this.props.description}</p>
+        <em>Tag: {this.props.Tag}</em>
+        <br />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            marginTop: "10px"
+          }}
+        >
+          <a
+            href={this.props.Url}
+            style={{ textDecoration: "none", color: "white" }}
+          >
+            Visit
+          </a>
+          {/* <button onClick={() =>this.props.deleteBookmark(this.props.id)}>Delete</button> */}
+          <Icon
+            type="delete"
+            onClick={() => this.props.deleteBookmark(this.props.id)}
+          />
+        </div>
       </div>
     );
   }
