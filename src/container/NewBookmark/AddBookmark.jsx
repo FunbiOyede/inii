@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "../../axios.config";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import Navigation from "../../component/Navigation/Navigation";
 import styles from "./AddBookmark.module.css";
 class AddBookmark extends Component {
@@ -27,6 +27,7 @@ class AddBookmark extends Component {
 
     const id = Math.floor(Math.random() * 10);
     const bookmark = {
+      name: "funbi",
       Id: id,
       Title: this.state.title,
       Description: this.state.description,
@@ -103,8 +104,25 @@ class AddBookmark extends Component {
             />
             <br />
             <button onClick={this.SubmitBookmark} className={styles.Add}>
-              Submit To inii
+              Submit
             </button>
+            <Link
+              to="/home"
+              style={{
+                textDecoration: "none",
+                float: "right",
+                borderRadius: "4px",
+                borderStyle: "solid",
+                borderWidth: "1px",
+                color: "white",
+                background: "#3c1053",
+                fontsize: "14px",
+                lineHeight: "42px",
+                padding: "4px 25px"
+              }}
+            >
+              Cancel
+            </Link>
           </form>
         </div>
 

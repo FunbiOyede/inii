@@ -14,19 +14,19 @@ const Navigation = props => (
           <SideDrawer />
         </div>
         <ul className={styles.navItems}>
-          <li>
+          {/* <li>
             <Link to="/home" style={{ color: "white" }}>
               Home
             </Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link to="/AddBookmark" style={{ color: "white" }}>
               Add Bookmark
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/profile" style={{ color: "white" }}>
-              UserProfile
+              Name of user
             </Link>
           </li>
           <li>
