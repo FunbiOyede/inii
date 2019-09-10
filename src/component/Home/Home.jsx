@@ -17,7 +17,7 @@ class Home extends Component {
       isFetched: false,
       isAdd: false,
       error: false,
-      isDeleted: false
+      isDeleted: true
     };
   }
 
@@ -68,9 +68,11 @@ class Home extends Component {
     axios
       .delete("/bookmark.json", id)
       .then(res => {
-        this.setState({
-          isDeleted: true
-        });
+        setTimeout(() => {
+          this.setState({
+            isDeleted: false
+          });
+        }, 2000);
       })
       .catch(err => {
         console.log(err);
@@ -115,13 +117,15 @@ class Home extends Component {
           All Bookmarks
         </h2>
         <div>
-          {this.state.isDeleted ? (
-            <p style={{ color: "#008000cc" }}>Bookmark successfully deleted</p>
-          ) : null}
+          {this.state.isDeleted ? null : (
+            <p style={{ color: "#008000cc", textAlign: "center" }}>
+              Bookmark successfully deleted
+            </p>
+          )}
           <div>
             {/* for loader */}
             {this.state.error ? (
-              <p style={{ color: "#ff0000a3" }}>
+              <p style={{ color: "#ff0000a3", textAlign: "center" }}>
                 Failed to load bookmarks connect to the internet{" "}
               </p>
             ) : (

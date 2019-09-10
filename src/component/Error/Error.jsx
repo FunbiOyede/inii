@@ -1,9 +1,9 @@
 import React from "react";
+import ErrorPage from "../../assets/56128677966243.5c978f7bcf385.jpg";
 
 const Error = props => (
   <div>
-    <h1>Error 404 </h1>
-    <h4>Page not found</h4>
+    <img src={ErrorPage} alt="page not found" />
   </div>
 );
 
