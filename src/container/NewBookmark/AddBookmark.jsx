@@ -61,7 +61,15 @@ class AddBookmark extends Component {
       <div>
         <Navigation />
         {this.state.isPosted ? <Redirect to="/home" /> : null}
-        <h3 style={{ textAlign: "center", fontSize: "30px" }}>Add Bookmark</h3>
+        <h3
+          style={{
+            textAlign: "center",
+            fontSize: "30px",
+            fontWeight: "400"
+          }}
+        >
+          Add Bookmark
+        </h3>
         <div style={{ height: "100%" }}>
           <form className={styles.BookmarkInput}>
             <input
@@ -103,24 +111,10 @@ class AddBookmark extends Component {
               placeholder="tag"
             />
             <br />
-            <button onClick={this.SubmitBookmark} className={styles.Add}>
+            <Link onClick={this.SubmitBookmark} className={styles.BtnSubmit}>
               Submit
-            </button>
-            <Link
-              to="/home"
-              style={{
-                textDecoration: "none",
-                float: "right",
-                borderRadius: "4px",
-                borderStyle: "solid",
-                borderWidth: "1px",
-                color: "white",
-                background: "#3c1053",
-                fontsize: "14px",
-                lineHeight: "42px",
-                padding: "4px 25px"
-              }}
-            >
+            </Link>
+            <Link to="/home" className={styles.BtnCancel}>
               Cancel
             </Link>
           </form>

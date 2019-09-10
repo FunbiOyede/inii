@@ -105,7 +105,15 @@ class Home extends Component {
     return (
       <div>
         <Navigation />
-        <h2 style={{ textAlign: "center" }}>All Bookmarks</h2>
+        <h2
+          style={{
+            textAlign: "center",
+            fontSize: "30px",
+            fontWeight: "400"
+          }}
+        >
+          All Bookmarks
+        </h2>
         <div>
           {this.state.isDeleted ? (
             <p style={{ color: "#008000cc" }}>Bookmark successfully deleted</p>
