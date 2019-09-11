@@ -16,3 +16,22 @@
   z-index: 100;
   font-size: 50px;
 }
+
+.AddIcon:hover {
+  color: #7a30c2;
+}
+
+.Delete {
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.Show {
+  color: white;
+  text-align: center;
+  display: inline;
+  padding: 10px;
+  background-color: #6b9658;
+  margin-left: 40%;
+  border-radius: 2px;
+}

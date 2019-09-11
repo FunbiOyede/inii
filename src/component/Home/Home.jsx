@@ -17,7 +17,8 @@ class Home extends Component {
       isFetched: false,
       isAdd: false,
       error: false,
-      isDeleted: true
+      hideMessage: true,
+      isDeleted: false
     };
   }
 
@@ -68,17 +69,20 @@ class Home extends Component {
     axios
       .delete("/bookmark.json", id)
       .then(res => {
-        setTimeout(() => {
-          this.setState({
-            isDeleted: false
-          });
-        }, 2000);
+        this.setState({
+          isDeleted: true
+        });
       })
       .catch(err => {
         console.log(err);
       });
   };
 
+  closeDeleteMessage = () => {
+    this.setState({
+      hideMessage: false
+    });
+  };
   render() {
     let loader = null;
     if (this.state.isLoad === true) {
@@ -93,7 +97,13 @@ class Home extends Component {
               deleteBookmark={this.deleteBookmark}
             />
           ) : (
-            <p>Add bookmark to get started</p>
+            <p
+              style={{
+                textAlign: "center"
+              }}
+            >
+              Add bookmark to get started
+            </p>
           )}
           <div>
             <Link to="/AddBookmark">
@@ -117,11 +127,16 @@ class Home extends Component {
           All Bookmarks
         </h2>
         <div>
-          {this.state.isDeleted ? null : (
-            <p style={{ color: "#008000cc", textAlign: "center" }}>
-              Bookmark successfully deleted
+          {this.state.isDeleted ? (
+            <p className={this.state.hideMessage ? style.Show : style.Delete}>
+              Bookmark successfully deleted{" "}
+              <Icon
+                type="close"
+                style={{ marginLeft: "30px", marginTop: "10px" }}
+                onClick={this.closeDeleteMessage}
+              />
             </p>
-          )}
+          ) : null}
           <div>
             {/* for loader */}
             {this.state.error ? (

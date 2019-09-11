@@ -54,3 +54,8 @@
   padding: 6px 35px;
   font-weight: 400;
 }
+
+.BtnSubmit:hover,
+.BtnCancel:hover {
+  background: #7a30c2;
+}
