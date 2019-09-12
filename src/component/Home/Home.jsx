@@ -102,7 +102,7 @@ class Home extends Component {
                 textAlign: "center"
               }}
             >
-              Add bookmark to get started
+              Bookmark Inventory empty, Add bookmark
             </p>
           )}
         </div>
