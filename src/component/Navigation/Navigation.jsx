@@ -15,12 +15,29 @@ const Navigation = props => (
         </div>
         <ul className={styles.navItems}>
           <li>
-            <Link to="/profile" style={{ color: "white" }}>
-              temiloluwa
+            <Link
+              to="/AddBookmark"
+              style={{
+                color: "white",
+                padding: "7px 16px",
+                borderRadius: "4px",
+                background: "#00000080"
+              }}
+            >
+              Add Bookmark
             </Link>
           </li>
+
           <li>
-            <Link to="/" style={{ color: "white" }}>
+            <Link
+              to="/"
+              style={{
+                color: "white",
+                padding: "7px 16px",
+                borderRadius: "4px",
+                background: "#00000080"
+              }}
+            >
               Signout
             </Link>
           </li>
