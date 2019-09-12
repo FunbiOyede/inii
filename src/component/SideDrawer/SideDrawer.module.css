@@ -1,6 +1,8 @@
 .SideDrawer {
   width: 40px;
-  height: 100%;
+  width: 200px;
+  height: 100vh;
+  background-color: #2a2d34;
   display: flex;
   flex-flow: column;
   justify-content: space-around;
@@ -9,34 +11,10 @@
   box-sizing: border-box;
   cursor: pointer;
   z-index: 1;
-  background-color: transparent;
+  transition: margin 0.5s;
 }
 
-.FirstBar {
-  width: 90%;
-  height: 3px;
-  background-color: white;
-  margin-left: 30px;
-  margin-bottom: 7px;
-  transition: 0.3s;
-  border-radius: 6px;
-}
-.SecondBar {
-  width: 52%;
-  height: 3px;
-  background-color: white;
-  margin-left: 30px;
-  margin-bottom: 7px;
-  transition: 0.3s;
-  border-radius: 6px;
-}
-
-.ThirdBar {
-  width: 90%;
-  height: 3px;
-  background-color: white;
-  margin-left: 30px;
-  margin-bottom: 7px;
-  transition: 0.3s;
-  border-radius: 6px;
+.CloseDrawer {
+  position: relative;
+  left: -200px;
 }

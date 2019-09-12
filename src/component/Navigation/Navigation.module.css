@@ -9,6 +9,8 @@
 }
 .navItems {
   float: right;
+  position: relative;
+  margin-top: -20px;
 }
 
 .navItems li {
