@@ -8,7 +8,6 @@ class AddBookmark extends Component {
     title: "",
     description: "",
     url: "",
-    tag: "",
     isPosted: false,
     error: false,
     errorMessage: ""
@@ -31,8 +30,7 @@ class AddBookmark extends Component {
       Id: id,
       Title: this.state.title,
       Description: this.state.description,
-      Url: this.state.url,
-      Tag: this.state.tag
+      Url: this.state.url
     };
     axios
       .post("/bookmark.json", bookmark)
@@ -102,15 +100,6 @@ class AddBookmark extends Component {
             />
             <br />
 
-            <input
-              value={this.state.tag}
-              onChange={this.getTitle}
-              type="text"
-              name="tag"
-              id=""
-              placeholder="tag"
-            />
-            <br />
             <Link onClick={this.SubmitBookmark} className={styles.BtnSubmit}>
               Submit
             </Link>

@@ -1,45 +1,28 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navigation.module.css";
-import SideDrawer from "../SideDrawer/SideDrawer";
-import { Icon } from "antd";
-
 class Navigation extends Component {
-  state = {
-    Drawer: false
-  };
-  Drawer = () => {
-    this.setState({
-      Drawer: !this.state.Drawer
-    });
-  };
-
   render() {
     return (
       <header className={styles.Header}>
         <nav>
           <div>
             <div className={styles.Logo}>
-              {/* <Link to="/home" style={{ color: "white" }}>
-            logo
-          </Link> */}
-              <SideDrawer SideBar={this.state.Drawer} />
-            </div>
-            <div>
-              <Icon
-                type="align-center"
+              <h2
                 style={{
-                  color: "white",
-                  position: "relative",
+                  letterSpacing: "4px",
+                  fontVariant: "small-caps",
                   fontSize: "33px",
-                  zIndex: "20px",
-                  top: "11px",
-                  outline: "none",
-                  left: "7px"
+                  color: "white",
+                  margin: "0",
+                  marginTop: "6px",
+                  marginLeft: "15px"
                 }}
-                onClick={this.Drawer}
-              />
+              >
+                inii
+              </h2>
             </div>
+
             <ul className={styles.navItems}>
               <li>
                 <Link
