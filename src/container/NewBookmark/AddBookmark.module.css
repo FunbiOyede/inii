@@ -4,7 +4,7 @@
   margin: 58px 261px;
 }
 
-.BookmarkInput input {
+.Inputs {
   margin-bottom: 20px;
   font-size: 16px;
   width: 74%;
@@ -19,10 +19,24 @@
   outline: none;
 }
 
-.BookmarkInput input:focus {
+.Inputs:focus {
   border-color: #3c1053;
 }
 
+.ErrorInput {
+  border: 1px solid rgb(196, 12, 12);
+  margin-bottom: 20px;
+  font-size: 16px;
+  width: 74%;
+  margin-left: 100px;
+  padding-top: 10px;
+  border-radius: 4px;
+  padding: 12px 8px;
+  /* margin: 0; */
+  color: #000;
+  transition: 0.5s linear;
+  outline: none;
+}
 .BtnCancel {
   text-decoration: none;
   float: right;
@@ -58,4 +72,21 @@
 .BtnSubmit:hover,
 .BtnCancel:hover {
   background: #1e042c;
+}
+
+.BtnValidity {
+  background: #000;
+  cursor: not-allowed;
+  font-size: 14px;
+  line-height: 42px;
+  position: relative;
+  left: 200px;
+  padding: 6px 35px;
+  font-weight: 400;
+  border-radius: 6px;
+  text-decoration: none;
+  color: grey;
+  float: left;
+  border-style: solid;
+  border-width: 1px;
 }

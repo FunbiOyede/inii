@@ -3,6 +3,7 @@ import axios from "../../axios.config";
 import { Redirect, Link } from "react-router-dom";
 import Navigation from "../../component/Navigation/Navigation";
 import styles from "./AddBookmark.module.css";
+// import { object } from "prop-types";
 class AddBookmark extends Component {
   state = {
     title: "",
@@ -10,6 +11,7 @@ class AddBookmark extends Component {
     url: "",
     isPosted: false,
     error: false,
+    urlIsValid: true,
     errorMessage: ""
   };
 
@@ -21,9 +23,30 @@ class AddBookmark extends Component {
     });
   };
 
+  validate = value => {
+    let isValid = true;
+    let expression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+
+    let regex = new RegExp(expression);
+
+    if (value.match(regex)) {
+      return isValid;
+    } else {
+      isValid = false;
+      return isValid;
+    }
+  };
+
+  // only getting url input with this method because of validation
+  getUrl = e => {
+    this.setState({
+      url: e.target.value,
+      urlIsValid: this.validate(e.target.value)
+    });
+  };
+
   SubmitBookmark = e => {
     e.preventDefault();
-
     const id = Math.floor(Math.random() * 10);
     const bookmark = {
       name: "funbi",
@@ -71,6 +94,7 @@ class AddBookmark extends Component {
         <div style={{ height: "100%" }}>
           <form className={styles.BookmarkInput}>
             <input
+              className={styles.Inputs}
               value={this.state.title}
               onChange={this.getTitle}
               type=""
@@ -81,6 +105,7 @@ class AddBookmark extends Component {
             <br />
 
             <input
+              className={styles.Inputs}
               value={this.state.description}
               onChange={this.getTitle}
               type="text"
@@ -91,8 +116,11 @@ class AddBookmark extends Component {
             <br />
 
             <input
+              className={
+                this.state.urlIsValid ? styles.Inputs : styles.ErrorInput
+              }
               value={this.state.url}
-              onChange={this.getTitle}
+              onChange={this.getUrl}
               type="url"
               name="url"
               id=""
@@ -100,7 +128,13 @@ class AddBookmark extends Component {
             />
             <br />
 
-            <Link onClick={this.SubmitBookmark} className={styles.BtnSubmit}>
+            <Link
+              to="/home"
+              onClick={this.SubmitBookmark}
+              className={
+                this.state.urlIsValid ? styles.BtnSubmit : styles.BtnValidity
+              }
+            >
               Submit
             </Link>
             <Link to="/home" className={styles.BtnCancel}>
@@ -108,12 +142,27 @@ class AddBookmark extends Component {
             </Link>
           </form>
         </div>
-
-        {this.state.error ? (
-          <p style={{ color: "#ff0000a3", textAlign: "center" }}>
-            Error adding bookmarks try again, Connect to the internet
-          </p>
-        ) : null}
+        <div>
+          {this.state.urlIsValid ? null : (
+            <p
+              style={{
+                color: "#ff0000a3",
+                textAlign: "center",
+                position: "relative",
+                top: "-93px"
+              }}
+            >
+              invalid url
+            </p>
+          )}
+        </div>
+        <div>
+          {this.state.error ? (
+            <p style={{ color: "#ff0000a3", textAlign: "center" }}>
+              Error adding bookmarks try again, Connect to the internet
+            </p>
+          ) : null}
+        </div>
       </div>
     );
   }

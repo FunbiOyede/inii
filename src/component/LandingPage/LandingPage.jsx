@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import styles from "./LandingPage.module.css";
-// import BookmarkImage from "../../../src/assets/landing_save_anything.png";
+// import BookmarkImage from "../../assets/bookmark-line-icon-vector-22866101.jpg";
 class LandingPage extends Component {
   toMainPage = () => {
     this.props.history.push("/home");
@@ -29,9 +29,7 @@ class LandingPage extends Component {
         </header>
         <main className={styles.Main}>
           <div style={{ display: "block" }}>
-            {/* <div>
-              <img src={BookmarkImage} alt="Save anything" />
-            </div> */}
+            <div>{/* <img src={BookmarkImage} alt="Save anything" /> */}</div>
             <h3>Save Anything, Read Anytime</h3>
           </div>
 
