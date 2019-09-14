@@ -3,7 +3,7 @@ import axios from "../../axios.config";
 import { Redirect, Link } from "react-router-dom";
 import Navigation from "../../component/Navigation/Navigation";
 import styles from "./AddBookmark.module.css";
-// import { object } from "prop-types";
+import ValidateUrl from "../../Helper/Validate";
 class AddBookmark extends Component {
   state = {
     title: "",
@@ -23,25 +23,11 @@ class AddBookmark extends Component {
     });
   };
 
-  validate = value => {
-    let isValid = true;
-    let expression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
-
-    let regex = new RegExp(expression);
-
-    if (value.match(regex)) {
-      return isValid;
-    } else {
-      isValid = false;
-      return isValid;
-    }
-  };
-
   // only getting url input with this method because of validation
   getUrl = e => {
     this.setState({
       url: e.target.value,
-      urlIsValid: this.validate(e.target.value)
+      urlIsValid: ValidateUrl(e.target.value)
     });
   };
 
