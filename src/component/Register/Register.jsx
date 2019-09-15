@@ -15,6 +15,8 @@ const Register = () => (
       <form className={styles.Form}>
         <h3>Create An Account</h3>
 
+        <input className={styles.Inputs} type="texts" placeholder="Username" />
+        <br />
         <input className={styles.Inputs} type="email" placeholder="Email" />
         <br />
         <input
