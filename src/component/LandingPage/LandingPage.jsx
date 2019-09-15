@@ -4,7 +4,7 @@ import styles from "./LandingPage.module.css";
 import BookmarkImage from "../../assets/landing_save_anything.png";
 class LandingPage extends Component {
   toMainPage = () => {
-    this.props.history.push("/home");
+    this.props.history.push("/login");
   };
 
   render() {
@@ -23,7 +23,7 @@ class LandingPage extends Component {
           </h2>
           <ul>
             <li onClick={this.toMainPage} style={{ cursor: "pointer" }}>
-              Launch App
+              Sign In
             </li>
           </ul>
         </header>
