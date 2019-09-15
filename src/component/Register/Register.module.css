@@ -1,0 +1,48 @@
+.Inputs {
+  margin-bottom: 20px;
+  font-size: 16px;
+  width: 74%;
+  margin-left: 100px;
+  padding-top: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 12px 8px;
+
+  color: #000;
+  transition: 0.5s linear;
+  outline: none;
+}
+
+.Inputs:focus {
+  border-color: #3c1053;
+}
+
+.CreateBtn {
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  color: white;
+  font-size: 24px;
+  line-height: 42px;
+  position: relative;
+  left: 43px;
+  padding: 10px 75px;
+  background: #000;
+  transition: 0.5s linear;
+}
+
+.CreateBtn:hover {
+  color: white;
+  background: #3c1053;
+}
+
+.Form {
+  padding-top: 52px;
+  margin-right: 116px;
+}
+
+@media (max-width: 500px) {
+  .Form {
+    background-color: aqua;
+  }
+}

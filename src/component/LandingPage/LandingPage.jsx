@@ -3,10 +3,13 @@ import { withRouter } from "react-router-dom";
 import styles from "./LandingPage.module.css";
 import BookmarkImage from "../../assets/landing_save_anything.png";
 class LandingPage extends Component {
-  toMainPage = () => {
+  toLoginPage = () => {
     this.props.history.push("/login");
   };
 
+  toSignUpPage = () => {
+    this.props.history.push("/signup");
+  };
   render() {
     return (
       <div className={styles.landingPage}>
@@ -22,7 +25,7 @@ class LandingPage extends Component {
             inii
           </h2>
           <ul>
-            <li onClick={this.toMainPage} style={{ cursor: "pointer" }}>
+            <li onClick={this.toLoginPage} style={{ cursor: "pointer" }}>
               Sign In
             </li>
           </ul>
@@ -44,7 +47,7 @@ class LandingPage extends Component {
           </div>
 
           <div style={{ textAlign: "center" }}>
-            <button onClick={this.toMainPage}>GET STARTED</button>
+            <button onClick={this.toSignUpPage}>GET STARTED</button>
           </div>
         </main>
         <footer
