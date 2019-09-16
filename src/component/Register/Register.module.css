@@ -16,6 +16,21 @@
 .Inputs:focus {
   border-color: #3c1053;
 }
+.Invalid {
+  border: 1px solid rgb(196, 12, 12);
+  margin-bottom: 20px;
+  font-size: 16px;
+  width: 74%;
+  margin-left: 100px;
+  padding-top: 10px;
+  border-radius: 4px;
+
+  padding: 12px 8px;
+
+  color: #000;
+  transition: 0.5s linear;
+  outline: non;
+}
 
 .CreateBtn {
   border-radius: 4px;

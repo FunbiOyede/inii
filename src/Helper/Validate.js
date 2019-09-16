@@ -23,4 +23,15 @@ export const ValidateEmail = value => {
     return isValid;
   }
 };
+
+export const ValidatePassword = password => {
+  let isPasswordValid;
+  if (password.length >= 8) {
+    isPasswordValid = true;
+    return isPasswordValid;
+  } else {
+    isPasswordValid = false;
+    return isPasswordValid;
+  }
+};
 export default ValidateUrl;
