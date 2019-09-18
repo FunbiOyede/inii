@@ -37,7 +37,7 @@ class LandingPage extends Component {
                 src={BookmarkImage}
                 alt="Save anything"
                 style={{
-                  marginTop: "-92px",
+                  marginTop: "-160px",
                   left: "426px",
                   position: "relative"
                 }}
@@ -53,7 +53,7 @@ class LandingPage extends Component {
         <footer
           style={{
             textAlign: "center",
-            marginTop: "-80px"
+            marginTop: "-120px"
           }}
         >
           <p>© 2019 Oluwafunbi</p>
