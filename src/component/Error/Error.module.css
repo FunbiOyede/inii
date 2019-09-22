@@ -1,0 +1,11 @@
+.Error {
+  position: relative;
+  left: 334px;
+  top: 30px;
+}
+
+@media (max-width: 500px) {
+  .Error {
+    width: 100%;
+  }
+}
