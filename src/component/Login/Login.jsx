@@ -24,15 +24,7 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <div
-          style={{
-            width: "50%",
-            margin: "50px auto",
-            height: "80vh",
-            display: "block",
-            textAlign: "center"
-          }}
-        >
+        <div className={styles.LoginContainer}>
           <form className={styles.Form}>
             <h3>Sign In</h3>
 
