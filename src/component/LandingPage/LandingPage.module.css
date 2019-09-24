@@ -67,3 +67,10 @@
   color: white;
   background: #3c1053;
 }
+
+@media (max-width: 500px) {
+  .Main div h3 {
+    font-weight: lighter;
+    font-size: 35px;
+  }
+}
