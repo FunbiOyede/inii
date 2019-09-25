@@ -8,7 +8,7 @@ class Display extends Component {
       <div className={styles.Bookmark}>
         <h4 style={{ textAlign: "center" }}>{this.props.Title}</h4>
         <p style={{ textAlign: "center" }}>{this.props.description}</p>
-        <em>Tag: {this.props.Tag}</em>
+
         <br />
         <div
           style={{

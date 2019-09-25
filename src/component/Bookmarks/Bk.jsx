@@ -11,7 +11,6 @@ class Bk extends Component {
           key={index}
           id={index}
           description={bookmarks.Description}
-          Tag={bookmarks.Tag}
           Title={bookmarks.Title}
           Url={bookmarks.Url}
           deleteBookmark={this.props.deleteBookmark}
