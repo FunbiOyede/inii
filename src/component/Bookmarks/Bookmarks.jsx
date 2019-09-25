@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Display from "../Display/Display";
-import styles from "./Bk.module.css";
+import Display from "../DisplayBookmarks/Display";
+import styles from "./Bookmarks.module.css";
 // import axios from '../../axios.config';
 
 class Bk extends Component {

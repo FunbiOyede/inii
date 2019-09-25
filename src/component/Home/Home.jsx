@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Loader from "../Loader/Loader";
 import axios from "../../axios.config";
-import Bk from "../../component/Bookmarks/Bk";
+import Bookmarks from "../Bookmarks/Bookmarks";
 import Navigation from "../Navigation/Navigation";
 import { Icon } from "antd";
 
@@ -91,7 +91,7 @@ class Home extends Component {
       loader = (
         <div>
           {this.state.isFetched ? (
-            <Bk
+            <Bookmarks
               isAdd
               Bookmark={this.state.Bookmark}
               deleteBookmark={this.deleteBookmark}
