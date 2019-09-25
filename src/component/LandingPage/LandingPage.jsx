@@ -36,11 +36,7 @@ class LandingPage extends Component {
               <img
                 src={BookmarkImage}
                 alt="Save anything"
-                style={{
-                  marginTop: "-160px",
-                  left: "426px",
-                  position: "relative"
-                }}
+                className={styles.Bookmark}
               />
             </div>
             <h3>Save Anything, Read Anytime...</h3>

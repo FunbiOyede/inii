@@ -68,9 +68,19 @@
   background: #3c1053;
 }
 
+.Bookmark {
+  margin-top: -160px;
+  left: 426px;
+  position: relative;
+}
+
 @media (max-width: 500px) {
   .Main div h3 {
     font-weight: lighter;
     font-size: 35px;
+  }
+  .Bookmark {
+    left: 14px;
+    position: relative;
   }
 }

@@ -1,3 +1,14 @@
+.Container {
+  width: 50%;
+  margin: 50px auto;
+  height: 80vh;
+  display: block;
+  text-align: center;
+}
+.Form {
+  padding-top: 52px;
+  margin-right: 116px;
+}
 .Inputs {
   margin-bottom: 20px;
   font-size: 16px;
@@ -29,7 +40,7 @@
 
   color: #000;
   transition: 0.5s linear;
-  outline: non;
+  outline: none;
 }
 
 .CreateBtn {
@@ -57,7 +68,56 @@
 }
 
 @media (max-width: 500px) {
-  .Form {
-    background-color: aqua;
+  .Container {
+    width: 100%;
+
+    height: 100vh;
+    display: block;
+
+    text-align: center;
+  }
+  .Inputs {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: 60px;
+
+    font-size: 16px;
+
+    padding-top: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 12px 8px;
+
+    color: #000;
+    transition: 0.5s linear;
+    outline: none;
+  }
+  .Invalid {
+    border: 1px solid rgb(196, 12, 12);
+    padding: 12px 8px;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: 60px;
+
+    font-size: 16px;
+
+    padding-top: 10px;
+    border-radius: 4px;
+    color: #000;
+    transition: 0.5s linear;
+    outline: non;
+  }
+  .CreateBtn {
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    color: white;
+    font-size: 24px;
+    line-height: 42px;
+    position: relative;
+    left: 66px;
+    padding: 10px 32px;
+    background: #000;
+    transition: 0.5s linear;
   }
 }

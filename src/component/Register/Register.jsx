@@ -17,15 +17,7 @@ class Register extends Component {
   render() {
     return (
       <div>
-        <div
-          style={{
-            width: "50%",
-            margin: "50px auto",
-            height: "80vh",
-            display: "block",
-            textAlign: "center"
-          }}
-        >
+        <div className={styles.Container}>
           <form className={styles.Form}>
             <h3>Create An Account</h3>
 

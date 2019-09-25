@@ -77,7 +77,7 @@ class AddBookmark extends Component {
         >
           Add Bookmark
         </h3>
-        <div style={{ height: "100%" }}>
+        <div className={styles.Container}>
           <form className={styles.BookmarkInput}>
             <input
               className={styles.Inputs}
@@ -144,7 +144,7 @@ class AddBookmark extends Component {
         </div>
         <div>
           {this.state.error ? (
-            <p style={{ color: "#ff0000a3", textAlign: "center" }}>
+            <p className={styles.ErrorMessage}>
               Error adding bookmarks try again, Connect to the internet
             </p>
           ) : null}
