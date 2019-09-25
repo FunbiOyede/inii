@@ -3,9 +3,9 @@ import Display from "../DisplayBookmarks/Display";
 import styles from "./Bookmarks.module.css";
 // import axios from '../../axios.config';
 
-class Bk extends Component {
+class Bookmarks extends Component {
   render() {
-    let bookmark = this.props.Bookmark.map((bookmarks, index) => {
+    const bookmark = this.props.Bookmark.map((bookmarks, index) => {
       return (
         <Display
           key={index}
@@ -22,4 +22,4 @@ class Bk extends Component {
   }
 }
 
-export default Bk;
+export default Bookmarks;
