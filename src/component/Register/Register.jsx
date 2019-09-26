@@ -5,7 +5,7 @@ import { ValidatePassword } from "../../Helper/Validate";
 class Register extends Component {
   state = {
     password: "",
-    isPasswordValid: null
+    isPasswordValid: true
   };
 
   getPassword = e => {

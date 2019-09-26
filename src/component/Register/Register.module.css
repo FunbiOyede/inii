@@ -120,4 +120,7 @@
     background: #000;
     transition: 0.5s linear;
   }
+  div .Form h3 {
+    padding-left: 82px;
+  }
 }
