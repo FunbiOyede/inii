@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import styles from "./Register.module.css";
 
-import { ValidatePassword } from "../../Helper/Validate";
+import { ValidatePassword, ValidateEmail } from "../../Helper/Validate";
 class Register extends Component {
   state = {
     password: "",
-    isPasswordValid: true
+    isPasswordValid: true,
+    email: "",
+    isEmailValid: true
   };
 
   getPassword = e => {
@@ -14,6 +16,14 @@ class Register extends Component {
       isPasswordValid: ValidatePassword(e.target.value)
     });
   };
+
+  getEmailAddress = e => {
+    this.setState({
+      email: e.target.value,
+      isEmailValid: ValidateEmail(e.target.value)
+    });
+  };
+
   render() {
     return (
       <div>
@@ -27,7 +37,14 @@ class Register extends Component {
               placeholder="Username"
             />
             <br />
-            <input className={styles.Inputs} type="email" placeholder="Email" />
+            <input
+              className={
+                this.state.isEmailValid ? styles.Inputs : styles.InvalidEmail
+              }
+              type="email"
+              placeholder="Email"
+              onChange={this.getEmailAddress}
+            />
             <br />
             <input
               className={
