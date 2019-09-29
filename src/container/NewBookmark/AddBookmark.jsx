@@ -52,7 +52,6 @@ class AddBookmark extends Component {
         this.setState({
           error: true
         });
-        console.log(err);
       });
 
     this.setState({
@@ -68,15 +67,7 @@ class AddBookmark extends Component {
       <div>
         <Navigation />
         {this.state.isPosted ? <Redirect to="/home" /> : null}
-        <h3
-          style={{
-            textAlign: "center",
-            fontSize: "30px",
-            fontWeight: "400"
-          }}
-        >
-          Add Bookmark
-        </h3>
+        <h3 className={styles.title}>Add Bookmark</h3>
         <div className={styles.Container}>
           <form className={styles.BookmarkInput}>
             <input

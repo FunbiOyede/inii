@@ -46,3 +46,10 @@
   top: 20px;
   left: 10px;
 }
+
+@media (max-width: 500px) {
+  .navItems li {
+    position: relative;
+    top: -40px;
+  }
+}

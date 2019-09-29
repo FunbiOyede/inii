@@ -11,7 +11,7 @@ class Login extends Component {
 
   getEmail = e => {
     const { value } = e.target;
-    console.log(value);
+
     this.setState({
       email: value,
       isEmailValid: ValidateEmail(value)

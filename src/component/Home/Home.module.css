@@ -35,3 +35,18 @@
   margin-left: 40%;
   border-radius: 2px;
 }
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+@media (max-width: 500px) {
+  .title {
+    text-align: center;
+    font-size: 30px;
+    padding: 21px 0px;
+    font-weight: 400;
+  }
+}

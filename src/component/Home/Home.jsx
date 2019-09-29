@@ -112,15 +112,7 @@ class Home extends Component {
     return (
       <div>
         <Navigation />
-        <h2
-          style={{
-            textAlign: "center",
-            fontSize: "30px",
-            fontWeight: "400"
-          }}
-        >
-          All Bookmarks
-        </h2>
+        <h2 className={style.title}>All Bookmarks</h2>
         <div>
           {this.state.isDeleted ? (
             <p className={this.state.hideMessage ? style.Show : style.Delete}>

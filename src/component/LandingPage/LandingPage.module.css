@@ -80,7 +80,13 @@
     font-size: 35px;
   }
   .Bookmark {
-    left: 14px;
+    left: -14px;
     position: relative;
+  }
+
+  ul li {
+    cursor: pointer;
+    position: relative;
+    top: 16px;
   }
 }
