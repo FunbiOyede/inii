@@ -6,7 +6,6 @@ import Navigation from "../Navigation/Navigation";
 import { Icon } from "antd";
 
 import style from "./Home.module.css";
-// import styles from './Home.module.css'
 
 class Home extends Component {
   constructor(props) {
@@ -60,10 +59,10 @@ class Home extends Component {
   // delete bookamrk
 
   deleteBookmark = id => {
-    let copyBookmark = [...this.state.Bookmark];
-    copyBookmark.splice(id, 1);
+    let initialBoomark = [...this.state.Bookmark];
+    initialBoomark.splice(id, 1);
     this.setState({
-      Bookmark: copyBookmark
+      Bookmark: initialBoomark
     });
 
     axios
