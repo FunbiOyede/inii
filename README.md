@@ -8,9 +8,20 @@ INII is simple online bookmark manager for your daily bookmark needs
 
 In the project directory, you can run:
 
-### `yarn install`
+### Prerequisites
 
-### `yarn start`
+Before starting installing, the following are required:
+
+- [Node.js](https://nodejs.org) (version 8 or higher).
+- [Yarn](https://yarnpkg.com) (preferred package manager)
+
+### Commands
+
+- yarn install
+
+Installs dependecies
+
+- yarn start
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -18,6 +29,15 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `Demo`
+## Tech Stack
+
+INII is a JavaScript-based application. It is built with popular JS library React.Here's the of technologies used.
+
+- [React](https://reactjs.org/)
+- [Material UI](https://material-ui.com/)
+- [Travis CI](https://travis-ci.org/)
+- [Heroku](https://www.heroku.com/)
+
+## Demo
 
 Demo at [INII](http://inii.herokuapp.com/)
