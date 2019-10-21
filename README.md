@@ -31,7 +31,7 @@ You will also see any lint errors in the console.
 
 ## Tech Stack
 
-INII is a JavaScript-based application. It is built with popular JS library React.Here's the of technologies used.
+INII is a JavaScript-based application. It is built with popular JS library React.Here's the list of technologies used.
 
 - [React](https://reactjs.org/)
 - [Material UI](https://material-ui.com/)
