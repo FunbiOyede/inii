@@ -5,6 +5,7 @@ import { getUserDetailRegister } from "../../store/Actions/ActionCreator";
 import { ValidatePassword, ValidateEmail } from "../../Helper/Validate";
 class Register extends Component {
   state = {
+    username: "",
     password: "",
     isPasswordValid: true,
     email: "",
@@ -25,10 +26,20 @@ class Register extends Component {
     });
   };
 
+  getUsername = e => {
+    this.setState({
+      username: e.target.value
+    });
+  };
+
   getUsers = e => {
     e.preventDefault();
 
-    this.props.getUserDetails(this.state.email, this.state.password);
+    this.props.getUserDetails(
+      this.state.username,
+      this.state.email,
+      this.state.password
+    );
   };
   render() {
     return (
@@ -41,6 +52,7 @@ class Register extends Component {
               className={styles.Inputs}
               type="texts"
               placeholder="Username"
+              onChange={this.getUsername}
             />
             <br />
             <input
@@ -81,8 +93,8 @@ class Register extends Component {
 }
 const dispatchToProps = dispatch => {
   return {
-    getUserDetails: (email, password) =>
-      dispatch(getUserDetailRegister(email, password))
+    getUserDetails: (name, email, password) =>
+      dispatch(getUserDetailRegister(name, email, password))
   };
 };
 
