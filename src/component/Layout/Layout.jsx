@@ -16,7 +16,7 @@ const Layout = props => (
       <Route path="/AddBookmark" exact component={AddBookmark} />
       <Route path="/login" exact component={Login} />
       <Route path="/profile" exact component={Profile} />
-      <Route path="/signup" exact component={Register} />
+      <Route path="/register" exact component={Register} />
       <Route component={Error} />
     </Switch>
   </div>

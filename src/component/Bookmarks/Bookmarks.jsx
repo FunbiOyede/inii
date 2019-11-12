@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Display from "../DisplayBookmarks/Display";
 import styles from "./Bookmarks.module.css";
-// import axios from '../../axios.config';
 
 class Bookmarks extends Component {
   render() {

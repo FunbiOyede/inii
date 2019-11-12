@@ -8,7 +8,7 @@ class LandingPage extends Component {
   };
 
   toSignUpPage = () => {
-    this.props.history.push("/signup");
+    this.props.history.push("/register");
   };
   render() {
     return (

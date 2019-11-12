@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./Register.module.css";
-
+import { connect } from "react-redux";
+import { getUserDetailRegister } from "../../store/Actions/ActionCreator";
 import { ValidatePassword, ValidateEmail } from "../../Helper/Validate";
 class Register extends Component {
   state = {
@@ -24,11 +25,16 @@ class Register extends Component {
     });
   };
 
+  getUsers = e => {
+    e.preventDefault();
+
+    this.props.getUserDetails(this.state.email, this.state.password);
+  };
   render() {
     return (
       <div>
         <div className={styles.Container}>
-          <form className={styles.Form}>
+          <form className={styles.Form} onSubmit={this.getUsers}>
             <h3>Create An Account</h3>
 
             <input
@@ -73,5 +79,11 @@ class Register extends Component {
     );
   }
 }
+const dispatchToProps = dispatch => {
+  return {
+    getUserDetails: (email, password) =>
+      dispatch(getUserDetailRegister(email, password))
+  };
+};
 
-export default Register;
+export default connect(null, dispatchToProps)(Register);
