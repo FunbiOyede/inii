@@ -3,7 +3,7 @@ import axios from "../../axios.config";
 import { Redirect, Link } from "react-router-dom";
 import Navigation from "../../component/Navigation/Navigation";
 import styles from "./AddBookmark.module.css";
-import ValidateUrl from "../../Helper/Validate";
+import { ValidateUrl } from "../../Helper/Validate";
 class AddBookmark extends Component {
   state = {
     title: "",
