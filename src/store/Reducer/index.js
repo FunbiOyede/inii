@@ -1,4 +1,4 @@
-// import * as ActionTypes from "../Actions/ActionTypes";
+import * as ActionTypes from "../Actions/ActionTypes";
 const initialState = {
   username: "",
   email: "",
@@ -6,5 +6,8 @@ const initialState = {
 };
 
 export const UserDetails = (state = initialState, action) => {
+  if (action.type === ActionTypes.LOGIN_DETAILS) {
+    console.log(action.Password);
+  }
   return state;
 };

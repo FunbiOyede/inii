@@ -59,3 +59,17 @@ export const authenticationFailed = error => {
     error: error
   };
 };
+
+/**
+ *
+ * @param {*} email user login email
+ * @param {*} password user login password
+ */
+
+export const getUserDetailLogin = (email, password) => {
+  return {
+    type: ActionTypes.LOGIN_DETAILS,
+    Email: email,
+    Password: password
+  };
+};

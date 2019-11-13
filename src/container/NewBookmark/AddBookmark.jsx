@@ -15,8 +15,8 @@ class AddBookmark extends Component {
     errorMessage: ""
   };
 
-  //getting data from multiple inputs
-  getTitle = e => {
+  // handling multiple inputs
+  handleInputs = e => {
     this.setState({
       ...this.state,
       [e.target.name]: e.target.value
@@ -73,7 +73,7 @@ class AddBookmark extends Component {
             <input
               className={styles.Inputs}
               value={this.state.title}
-              onChange={this.getTitle}
+              onChange={this.handleInputs}
               type=""
               name="title"
               id=""
@@ -81,10 +81,10 @@ class AddBookmark extends Component {
             />
             <br />
 
-            <input
+            <textarea
               className={styles.Inputs}
               value={this.state.description}
-              onChange={this.getTitle}
+              onChange={this.handleInputs}
               type="text"
               name="description"
               id=""
@@ -105,6 +105,10 @@ class AddBookmark extends Component {
             />
             <br />
 
+            <Link to="/home" className={styles.BtnCancel}>
+              Cancel
+            </Link>
+
             <Link
               to="/home"
               onClick={this.SubmitBookmark}
@@ -113,9 +117,6 @@ class AddBookmark extends Component {
               }
             >
               Submit
-            </Link>
-            <Link to="/home" className={styles.BtnCancel}>
-              Cancel
             </Link>
           </form>
         </div>
@@ -126,7 +127,7 @@ class AddBookmark extends Component {
                 color: "#ff0000a3",
                 textAlign: "center",
                 position: "relative",
-                top: "-93px"
+                top: "-84px"
               }}
             >
               invalid url

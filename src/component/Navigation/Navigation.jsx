@@ -29,9 +29,7 @@ class Navigation extends Component {
                   to="/AddBookmark"
                   style={{
                     color: "white",
-                    padding: "7px 16px",
-                    borderRadius: "4px",
-                    background: "#00000080"
+                    padding: "7px 16px"
                   }}
                 >
                   Add Bookmark
@@ -43,9 +41,7 @@ class Navigation extends Component {
                   to="/"
                   style={{
                     color: "white",
-                    padding: "7px 16px",
-                    borderRadius: "4px",
-                    background: "#00000080"
+                    padding: "7px 16px"
                   }}
                 >
                   Signout

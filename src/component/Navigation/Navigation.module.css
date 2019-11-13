@@ -1,7 +1,7 @@
 .Header {
   width: 100%;
   height: 60px;
-  background: #4b134f;
+  background: #2a364a;
 }
 
 .Input {
@@ -21,7 +21,6 @@
 
 .AddIcon {
   color: #fff;
-
   z-index: 100;
   font-size: 10px;
   padding: 0 20px;

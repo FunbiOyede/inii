@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styles from "./Login.module.css";
 import { ValidateEmail } from "../../Helper/Validate";
+import * as ActionCreators from "../../store/Actions/ActionCreator";
+import { connect } from "react-redux";
 
 class Login extends Component {
   state = {
@@ -23,13 +25,17 @@ class Login extends Component {
       password: e.target.value
     });
   };
+
+  getUserData = e => {
+    e.preventDefault();
+    this.props.loginUserDetails(this.state.email, this.state.password);
+  };
   render() {
     return (
       <div>
         <div className={styles.LoginContainer}>
-          <form className={styles.Form}>
-            <h3>Sign In</h3>
-
+          <form className={styles.Form} onSubmit={this.getUserData}>
+            <h3 className={styles.SignInTitle}>Login</h3>
             <input
               className={
                 this.state.isEmailValid ? styles.Inputs : styles.Invalid
@@ -38,7 +44,6 @@ class Login extends Component {
               placeholder="Email"
               onChange={this.getEmail}
             />
-
             <br />
             <input
               className={styles.Inputs}
@@ -46,6 +51,7 @@ class Login extends Component {
               placeholder="Password"
               onChange={this.getPassword}
             />
+
             <button className={styles.SignIn}>Sign In</button>
           </form>
         </div>
@@ -54,4 +60,11 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const dispatchToProps = dispatch => {
+  return {
+    loginUserDetails: (email, password) =>
+      dispatch(ActionCreators.getUserDetailLogin(email, password))
+  };
+};
+
+export default connect(null, dispatchToProps)(Login);
