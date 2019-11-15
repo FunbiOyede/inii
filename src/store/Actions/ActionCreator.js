@@ -67,9 +67,26 @@ export const authenticationFailed = error => {
  */
 
 export const getUserDetailLogin = (email, password) => {
-  return {
-    type: ActionTypes.LOGIN_DETAILS,
-    Email: email,
-    Password: password
+  return dispatch => {
+    dispatch(startAuthentication());
+    const loginDetails = {
+      email: email,
+      password: password,
+      returnSecureToken: true
+    };
+
+    axios
+      .post(
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCj5ZSgS3NPkegGkV4-SoCHkN-8WbJBd4U",
+        loginDetails
+      )
+      .then(response => {
+        console.log(response);
+        dispatch(authenticationPassed(response));
+      })
+      .catch(err => {
+        console.log(err);
+        dispatch(authenticationFailed(err));
+      });
   };
 };

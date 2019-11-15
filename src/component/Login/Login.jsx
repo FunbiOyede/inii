@@ -12,11 +12,9 @@ class Login extends Component {
   };
 
   getEmail = e => {
-    const { value } = e.target;
-
     this.setState({
-      email: value,
-      isEmailValid: ValidateEmail(value)
+      email: e.target.value,
+      isEmailValid: ValidateEmail(e.target.value)
     });
   };
 
