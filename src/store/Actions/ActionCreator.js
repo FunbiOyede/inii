@@ -75,6 +75,25 @@ export const authenticationFailed = error => {
   };
 };
 
+export const logout = () => {
+  return {
+    type: ActionTypes.LOGOUT
+  };
+};
+
+/**
+ *
+ * @param {*} expiringTime expiring time frame for users
+ * @function sets user token and id to null when user is logged out
+ */
+export const handleAuthTimeout = expiringTime => {
+  return dispatch => {
+    setTimeout(() => {
+      dispatch(logout());
+    }, expiringTime);
+  };
+};
+
 /**
  *
  * @param {*} email user login email
@@ -103,6 +122,7 @@ export const getUserDetailLogin = (email, password) => {
             response.data.localId
           )
         );
+        dispatch(handleAuthTimeout(response.data.expiresIn));
       })
       .catch(error => {
         console.log(error.response);

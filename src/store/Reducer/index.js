@@ -25,5 +25,13 @@ export const UserDetails = (state = initialState, action) => {
       isError: true
     };
   }
+
+  if (action.type === ActionTypes.LOGOUT) {
+    return {
+      ...state,
+      token: null,
+      userId: null
+    };
+  }
   return state;
 };
