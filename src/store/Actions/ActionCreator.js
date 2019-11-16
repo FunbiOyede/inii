@@ -1,17 +1,29 @@
 import * as ActionTypes from "../Actions/ActionTypes";
 import axios from "axios";
+
+/**
+ *
+ * @param {*} username
+ */
+export const saveUser = username => {
+  return {
+    type: ActionTypes.GET_USERNAME,
+    Username: username
+  };
+};
+
 /**
  *
  * @param {*} username
  * @param {*} email
  * @param {*} password
  */
+
 export const getUserDetailRegister = (username, email, password) => {
-  // const Username = username;
   return dispatch => {
     dispatch(startAuthentication());
+    dispatch(saveUser(username));
     const userAuthDetails = {
-      Username: username,
       email: email,
       password: password,
       returnSecureToken: true

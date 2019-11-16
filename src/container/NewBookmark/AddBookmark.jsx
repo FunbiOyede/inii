@@ -4,6 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 import Navigation from "../../component/Navigation/Navigation";
 import styles from "./AddBookmark.module.css";
 import { ValidateUrl } from "../../Helper/Validate";
+import { connect } from "react-redux";
 class AddBookmark extends Component {
   state = {
     title: "",
@@ -35,7 +36,6 @@ class AddBookmark extends Component {
     e.preventDefault();
     const id = Math.floor(Math.random() * 10);
     const bookmark = {
-      name: "funbi",
       Id: id,
       Title: this.state.title,
       Description: this.state.description,
@@ -68,6 +68,7 @@ class AddBookmark extends Component {
         <Navigation />
         {this.state.isPosted ? <Redirect to="/home" /> : null}
         <h3 className={styles.title}>Add Bookmark</h3>
+        <p>{this.props.username}</p>
         <div className={styles.Container}>
           <form className={styles.BookmarkInput}>
             <input
@@ -146,4 +147,9 @@ class AddBookmark extends Component {
   }
 }
 
-export default AddBookmark;
+const mapStateToProps = state => {
+  return {
+    username: state.username
+  };
+};
+export default connect(mapStateToProps)(AddBookmark);

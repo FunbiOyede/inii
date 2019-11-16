@@ -33,5 +33,12 @@ export const UserDetails = (state = initialState, action) => {
       userId: null
     };
   }
+
+  if (action.type === ActionTypes.GET_USERNAME) {
+    return {
+      ...state,
+      username: action.Username
+    };
+  }
   return state;
 };
