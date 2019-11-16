@@ -23,7 +23,7 @@ export const getUserDetailRegister = (username, email, password) => {
       )
       .then(response => {
         console.log(response);
-        dispatch(authenticationPassed(response));
+        dispatch(authenticationPassed(response.data));
       })
       .catch(err => {
         console.log(err);
@@ -49,6 +49,21 @@ export const authenticationPassed = authenticationResponse => {
   };
 };
 
+/**
+ *
+ * @param {*} authenticationResponseToken token from firebase when authentication process is passed
+ * @param {*} userId id  from firebase when authentication process is passed
+ */
+export const authenticationPassedAndSaveToken = (
+  authenticationResponseToken,
+  userId
+) => {
+  return {
+    type: ActionTypes.AUTHENTICATION_IS_SUCCESS,
+    token: authenticationResponseToken,
+    UserID: userId
+  };
+};
 /**
  *
  * @param {*} error response from firebase if authentication process fails
@@ -82,11 +97,16 @@ export const getUserDetailLogin = (email, password) => {
       )
       .then(response => {
         console.log(response);
-        dispatch(authenticationPassed(response));
+        dispatch(
+          authenticationPassedAndSaveToken(
+            response.data.idToken,
+            response.data.localId
+          )
+        );
       })
-      .catch(err => {
-        console.log(err);
-        dispatch(authenticationFailed(err));
+      .catch(error => {
+        console.log(error.response);
+        dispatch(authenticationFailed(error.response.data.error.message));
       });
   };
 };

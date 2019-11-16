@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styles from "./Login.module.css";
 import { ValidateEmail } from "../../Helper/Validate";
+// import { ErrorHandler } from "../../Helper/Error";
 import * as ActionCreators from "../../store/Actions/ActionCreator";
 import { connect } from "react-redux";
 
@@ -29,6 +30,10 @@ class Login extends Component {
     this.props.loginUserDetails(this.state.email, this.state.password);
   };
   render() {
+    let message = null;
+    if (this.props.isError) {
+      message = <p>{this.props.ErrorMessage}</p>;
+    }
     return (
       <div>
         <div className={styles.LoginContainer}>
@@ -51,6 +56,7 @@ class Login extends Component {
             />
 
             <button className={styles.SignIn}>Sign In</button>
+            <div style={{ color: "red" }}>{message}</div>
           </form>
         </div>
       </div>
@@ -58,6 +64,12 @@ class Login extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    ErrorMessage: state.errorMessage,
+    isError: state.isError
+  };
+};
 const dispatchToProps = dispatch => {
   return {
     loginUserDetails: (email, password) =>
@@ -65,4 +77,4 @@ const dispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, dispatchToProps)(Login);
+export default connect(mapStateToProps, dispatchToProps)(Login);
