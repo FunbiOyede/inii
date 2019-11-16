@@ -42,6 +42,10 @@ class Register extends Component {
     );
   };
   render() {
+    let message = null;
+    if (this.props.isError) {
+      message = <p>{this.props.ErrorMessage}</p>;
+    }
     return (
       <div>
         <div className={styles.Container}>
@@ -72,25 +76,22 @@ class Register extends Component {
               placeholder="Password"
               onChange={this.getPassword}
             />
-            <div>
-              {this.state.isPasswordValid ? null : (
-                <p
-                  style={{
-                    color: "#ff0000a3",
-                    textAlign: "center"
-                  }}
-                >
-                  Password must be greater than 8{" "}
-                </p>
-              )}
-            </div>
+
             <button className={styles.CreateBtn}>Create Account</button>
+            <div style={{ color: "red" }}>{message}</div>
           </form>
         </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    ErrorMessage: state.errorMessage,
+    isError: state.isError
+  };
+};
 const dispatchToProps = dispatch => {
   return {
     getUserDetails: (name, email, password) =>
@@ -98,4 +99,4 @@ const dispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, dispatchToProps)(Register);
+export default connect(mapStateToProps, dispatchToProps)(Register);

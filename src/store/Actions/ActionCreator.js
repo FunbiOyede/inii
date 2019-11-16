@@ -37,9 +37,9 @@ export const getUserDetailRegister = (username, email, password) => {
         console.log(response);
         dispatch(authenticationPassed(response.data));
       })
-      .catch(err => {
-        console.log(err);
-        dispatch(authenticationFailed(err));
+      .catch(error => {
+        console.log(error.response);
+        dispatch(authenticationFailed(error.response.data.error.message));
       });
   };
 };
