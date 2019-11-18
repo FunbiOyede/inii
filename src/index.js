@@ -4,12 +4,10 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import axios from "axios";
-
 import { Provider } from "react-redux";
 import { Store } from "./store/store.config";
 
 //interceptors
-
 axios.interceptors.request.use(
   request => {
     return request;
