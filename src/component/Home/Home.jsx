@@ -3,8 +3,9 @@ import Loader from "../Loader/Loader";
 import axios from "../../axios.config";
 import Bookmarks from "../Bookmarks/Bookmarks";
 import Navigation from "../Navigation/Navigation";
-import { Icon } from "antd";
 
+import { Icon } from "antd";
+import { connect } from "react-redux";
 import style from "./Home.module.css";
 
 class Home extends Component {
@@ -21,19 +22,9 @@ class Home extends Component {
     };
   }
 
-  // handles spinner
-
-  componentDidMount() {
-    // fetch bookmarks from firebase
-
-    setTimeout(() => {
-      this.setState({
-        isLoad: false
-      });
-    }, 2000);
-
+  fetchBookmarks = token => {
     axios
-      .get("/bookmark.json")
+      .get("/bookmark.json?auth=" + token)
       .then(res => {
         let fetchedBookmarks = res.data;
         let bookmarks;
@@ -53,8 +44,9 @@ class Home extends Component {
           error: true
         });
         console.log(err);
+        // console.log(err.response.data.error);
       });
-  }
+  };
 
   // delete bookamrk
 
@@ -82,6 +74,17 @@ class Home extends Component {
       hideMessage: false
     });
   };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        isLoad: false
+      });
+    }, 2000);
+
+    this.fetchBookmarks(this.props.token);
+  }
+
   render() {
     let loader = null;
     if (this.state.isLoad === true) {
@@ -139,4 +142,10 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => {
+  return {
+    token: state.token
+  };
+};
+
+export default connect(mapStateToProps)(Home);

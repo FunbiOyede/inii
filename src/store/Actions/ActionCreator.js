@@ -1,5 +1,9 @@
 import * as ActionTypes from "../Actions/ActionTypes";
 import axios from "axios";
+import {
+  persistUserAuthDetails,
+  deletePersistUserAuthDetails
+} from "../../Helper/constants";
 
 /**
  *
@@ -88,6 +92,7 @@ export const authenticationFailed = error => {
 };
 
 export const logout = () => {
+  deletePersistUserAuthDetails();
   return {
     type: ActionTypes.LOGOUT
   };
@@ -102,7 +107,7 @@ export const handleAuthTimeout = expiringTime => {
   return dispatch => {
     setTimeout(() => {
       dispatch(logout());
-    }, expiringTime);
+    }, expiringTime * 1000);
   };
 };
 
@@ -128,6 +133,8 @@ export const getUserDetailLogin = (email, password) => {
       )
       .then(response => {
         console.log(response);
+
+        persistUserAuthDetails(response.data.idToken, response.data.expiresIn);
         dispatch(
           authenticationPassedAndSaveToken(
             response.data.idToken,

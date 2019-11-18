@@ -7,16 +7,18 @@ const initialState = {
   token: null,
   userId: null,
   errorMessage: "",
-  isError: false
+  isError: false,
+  isLogin: false
 };
 
 export const UserDetails = (state = initialState, action) => {
   if (action.type === ActionTypes.AUTHENTICATION_IS_SUCCESS) {
-    let authDetails = Object.assign(state, {
+    return {
+      ...state,
       token: action.token,
-      userId: action.UserID
-    });
-    return authDetails;
+      userId: action.UserID,
+      isLogin: true
+    };
   }
   if (action.type === ActionTypes.AUTHENTICATION_IS_FAILURE) {
     return {

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styles from "./Login.module.css";
 import { ValidateEmail } from "../../Helper/Validate";
-// import { ErrorHandler } from "../../Helper/Error";
 import * as ActionCreators from "../../store/Actions/ActionCreator";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -29,12 +29,14 @@ class Login extends Component {
     e.preventDefault();
     this.props.loginUserDetails(this.state.email, this.state.password);
   };
+
   render() {
     let message = null;
     if (this.props.isError) {
       message = <p>{this.props.ErrorMessage}</p>;
     }
-    return (
+
+    let componentLogin = (
       <div>
         <div className={styles.LoginContainer}>
           <form className={styles.Form} onSubmit={this.getUserData}>
@@ -61,13 +63,18 @@ class Login extends Component {
         </div>
       </div>
     );
+    if (this.props.isLogged) {
+      componentLogin = <Redirect to="/home" />;
+    }
+    return componentLogin;
   }
 }
 
 const mapStateToProps = state => {
   return {
     ErrorMessage: state.errorMessage,
-    isError: state.isError
+    isError: state.isError,
+    isLogged: state.isLogin
   };
 };
 const dispatchToProps = dispatch => {
