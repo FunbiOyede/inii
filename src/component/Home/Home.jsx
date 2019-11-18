@@ -3,7 +3,7 @@ import Loader from "../Loader/Loader";
 import axios from "../../axios.config";
 import Bookmarks from "../Bookmarks/Bookmarks";
 import Navigation from "../Navigation/Navigation";
-
+import * as ActionCreators from "../../store/Actions/ActionCreator";
 import { Icon } from "antd";
 import { connect } from "react-redux";
 import style from "./Home.module.css";
@@ -21,6 +21,7 @@ class Home extends Component {
       isDeleted: false
     };
   }
+  authCheckState;
 
   fetchBookmarks = token => {
     axios
@@ -83,6 +84,7 @@ class Home extends Component {
     }, 2000);
 
     this.fetchBookmarks(this.props.token);
+    this.props.authCheckState();
   }
 
   render() {
@@ -148,4 +150,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(Home);
+const DispatchToProps = dispatch => {
+  return {
+    authCheckState: () => dispatch(ActionCreators.authCheckState())
+  };
+};
+
+export default connect(mapStateToProps, DispatchToProps)(Home);

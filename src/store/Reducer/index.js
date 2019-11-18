@@ -44,3 +44,6 @@ export const UserDetails = (state = initialState, action) => {
   }
   return state;
 };
+
+// fix it when the user stays logged in even when reloaded
+//making two bugs now lol

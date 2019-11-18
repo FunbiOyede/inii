@@ -6,15 +6,18 @@
  * @param {string} expiringTime
  * saves both token and expiringTime to localstorage as persistent data
  */
-export const persistUserAuthDetails = (token, expiringTime) => {
+export const persistUserAuthDetails = (token, expiringTime, userID) => {
   localStorage.setItem("token", token);
   localStorage.setItem("expiringDate", formatExpiringTime(expiringTime));
+  localStorage.setItem("userID", userID);
 };
 
 export const deletePersistUserAuthDetails = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("expiringDate");
+  localStorage.removeItem("userID");
 };
+
 /**
  *
  * @param {string} expiredTime

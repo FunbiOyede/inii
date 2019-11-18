@@ -69,6 +69,7 @@ export const authenticationPassed = authenticationResponse => {
  *
  * @param {*} authenticationResponseToken token from firebase when authentication process is passed
  * @param {*} userId id  from firebase when authentication process is passed
+ * @function this executes when user login
  */
 export const authenticationPassedAndSaveToken = (
   authenticationResponseToken,
@@ -101,7 +102,7 @@ export const logout = () => {
 /**
  *
  * @param {*} expiringTime expiring time frame for users
- * @function sets user token and id to null when user is logged out
+ * @function sets user token and id to null when expiring time is completed
  */
 export const handleAuthTimeout = expiringTime => {
   return dispatch => {
@@ -134,7 +135,11 @@ export const getUserDetailLogin = (email, password) => {
       .then(response => {
         console.log(response);
 
-        persistUserAuthDetails(response.data.idToken, response.data.expiresIn);
+        persistUserAuthDetails(
+          response.data.idToken,
+          response.data.expiresIn,
+          response.data.localId
+        );
         dispatch(
           authenticationPassedAndSaveToken(
             response.data.idToken,
@@ -147,5 +152,22 @@ export const getUserDetailLogin = (email, password) => {
         console.log(error.response);
         dispatch(authenticationFailed(error.response.data.error.message));
       });
+  };
+};
+
+/**
+ * @function basically the function get the data stored persistently from localstorage so the user can be kept logged in
+ */
+
+export const authCheckState = () => {
+  return dispatch => {
+    const token = localStorage.getItem("token");
+    if (token !== null) {
+      const userId = localStorage.getItem("userID");
+
+      dispatch(authenticationPassedAndSaveToken(token, userId));
+    } else {
+      dispatch(logout());
+    }
   };
 };
