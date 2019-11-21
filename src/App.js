@@ -28,13 +28,7 @@ class App extends Component {
       );
     }
 
-    return (
-      <div>
-        <BrowserRouter>
-          <div>{routerGaurds}</div>
-        </BrowserRouter>
-      </div>
-    );
+    return <BrowserRouter>{routerGaurds}</BrowserRouter>;
   }
 }
 
