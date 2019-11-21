@@ -8,7 +8,8 @@ const initialState = {
   userId: null,
   errorMessage: "",
   isError: false,
-  isLogin: false
+  isLogin: false,
+  isRegister: false
 };
 
 export const UserDetails = (state = initialState, action) => {
@@ -40,6 +41,14 @@ export const UserDetails = (state = initialState, action) => {
     return {
       ...state,
       username: action.Username
+    };
+  }
+
+  if (action.type === ActionTypes.REGISTERATION_SUCCESS) {
+    return {
+      ...state,
+      isRegister: true,
+      token: action.Token
     };
   }
   return state;

@@ -17,6 +17,13 @@ export const saveUser = username => {
   };
 };
 
+export const registered = token => {
+  return {
+    type: ActionTypes.REGISTERATION_SUCCESS,
+    Token: token
+  };
+};
+
 /**
  *
  * @param {*} username
@@ -41,6 +48,7 @@ export const getUserDetailRegister = (username, email, password) => {
       .then(response => {
         console.log(response);
         dispatch(authenticationPassed(response.data));
+        dispatch(registered(response.data.idToken));
       })
       .catch(error => {
         console.log(error.response);

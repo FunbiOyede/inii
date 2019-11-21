@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getUserDetailRegister } from "../../store/Actions/ActionCreator";
 import { ValidatePassword, ValidateEmail } from "../../Helper/Validate";
 import ErrorHandler from "../ErrorHandler/ErrorHandler";
+import { Redirect } from "react-router-dom";
 class Register extends Component {
   state = {
     username: "",
@@ -58,7 +59,8 @@ class Register extends Component {
     if (this.props.isError) {
       message = <p>{this.props.ErrorMessage}</p>;
     }
-    return (
+
+    let RegisterComponent = (
       <div>
         <ErrorHandler>
           <div className={styles.Container}>
@@ -100,13 +102,19 @@ class Register extends Component {
         </ErrorHandler>
       </div>
     );
+
+    if (this.props.Registered) {
+      RegisterComponent = <Redirect to="/home" />;
+    }
+    return <div>{RegisterComponent}</div>;
   }
 }
 
 const mapStateToProps = state => {
   return {
     ErrorMessage: state.errorMessage,
-    isError: state.isError
+    isError: state.isError,
+    Registered: state.isRegister
   };
 };
 const dispatchToProps = dispatch => {
