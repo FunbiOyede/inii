@@ -8,30 +8,10 @@ import Login from "././component/Login/Login";
 import Register from "././component/Register/Register";
 import Hoc from "./HOC/hoc";
 
-import { connect } from "react-redux";
 class App extends Component {
   render() {
-    // let routerGaurds = (
-    //   <Switch>
-    //     <Route path="/" exact component={LandingPage} />
-    //     <Route path="/login" exact component={Login} />
-    //     <Route path="/register" exact component={Register} />
-    //     <Redirect to="/" />
-    //   </Switch>
-    // );
-    // if (this.props.isAuthtenticated) {
-    //   routerGaurds = (
-    //     <Switch>
-    //       <Route path="/home" exact component={Home} />
-    //       <Route path="/AddBookmark" exact component={AddBookmark} />
-    //       <Route component={Error} />
-    //     </Switch>
-    //   );
-    // }
-
     return (
       <Hoc>
-        {" "}
         <Switch>
           <Route path="/" exact component={LandingPage} />
           <Route path="/login" exact component={Login} />
@@ -46,10 +26,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isAuthtenticated: state.token !== null
-  };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;

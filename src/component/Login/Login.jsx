@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styles from "./Login.module.css";
 import { ValidateEmail } from "../../Helper/Validate";
 import * as ActionCreators from "../../store/Actions/ActionCreator";
-import { connect } from "react-redux";
+
 import { Redirect } from "react-router-dom";
 
 class Login extends Component {
@@ -70,18 +70,18 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    ErrorMessage: state.errorMessage,
-    isError: state.isError,
-    isLogged: state.isLogin
-  };
-};
-const dispatchToProps = dispatch => {
-  return {
-    loginUserDetails: (email, password) =>
-      dispatch(ActionCreators.getUserDetailLogin(email, password))
-  };
-};
+// const mapStateToProps = state => {
+//   return {
+//     ErrorMessage: state.errorMessage,
+//     isError: state.isError,
+//     isLogged: state.isLogin
+//   };
+// };
+// const dispatchToProps = dispatch => {
+//   return {
+//     loginUserDetails: (email, password) =>
+//       dispatch(ActionCreators.getUserDetailLogin(email, password))
+//   };
+// };
 
-export default connect(mapStateToProps, dispatchToProps)(Login);
+export default Login;

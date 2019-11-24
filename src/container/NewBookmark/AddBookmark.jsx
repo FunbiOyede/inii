@@ -68,7 +68,7 @@ class AddBookmark extends Component {
         <Navigation />
         {this.state.isPosted ? <Redirect to="/home" /> : null}
         <h3 className={styles.title}>Add Bookmark</h3>
-        <p>{this.props.username}</p>
+
         <div className={styles.Container}>
           <form className={styles.BookmarkInput}>
             <input
@@ -147,9 +147,4 @@ class AddBookmark extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    username: state.username
-  };
-};
-export default connect(mapStateToProps)(AddBookmark);
+export default AddBookmark;

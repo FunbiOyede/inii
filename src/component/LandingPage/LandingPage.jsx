@@ -12,9 +12,7 @@ class LandingPage extends Component {
   toSignUpPage = () => {
     this.props.history.push("/register");
   };
-  componentDidMount() {
-    this.props.logout();
-  }
+
   render() {
     return (
       <div className={styles.landingPage}>
@@ -64,9 +62,4 @@ class LandingPage extends Component {
   }
 }
 
-const dispatchToProps = dispatch => {
-  return {
-    logout: () => dispatch(ActionCreators.logout())
-  };
-};
-export default connect(null, dispatchToProps)(withRouter(LandingPage));
+export default withRouter(LandingPage);
