@@ -4,7 +4,7 @@ import { Redirect, Link } from "react-router-dom";
 import Navigation from "../../component/Navigation/Navigation";
 import styles from "./AddBookmark.module.css";
 import { ValidateUrl } from "../../Helper/Validate";
-import { connect } from "react-redux";
+
 class AddBookmark extends Component {
   state = {
     title: "",

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styles from "./Login.module.css";
 import { ValidateEmail } from "../../Helper/Validate";
-import * as ActionCreators from "../../store/Actions/ActionCreator";
 
 import { Redirect } from "react-router-dom";
 

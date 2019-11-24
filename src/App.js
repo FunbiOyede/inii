@@ -22,6 +22,7 @@ class App extends Component {
             <Route path="/AddBookmark" exact component={AddBookmark} />
             <Route path="/signout" exact component={signout} />
             <Route component={Error} />
+            <Redirect path="/" />
           </Switch>
         </BrowserRouter>
       </Hoc>
