@@ -38,7 +38,7 @@ class Navigation extends Component {
 
               <li>
                 <Link
-                  to="/"
+                  to="/signout"
                   style={{
                     color: "white",
                     padding: "7px 16px"

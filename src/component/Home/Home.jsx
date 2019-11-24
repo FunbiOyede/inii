@@ -24,7 +24,6 @@ class Home extends Component {
   }
 
   fetchBookmarks = token => {
-    console.log(token);
     axios
       .get("/bookmark.json?auth=" + token)
       .then(res => {

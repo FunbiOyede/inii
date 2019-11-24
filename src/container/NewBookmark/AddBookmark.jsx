@@ -34,6 +34,7 @@ class AddBookmark extends Component {
 
   SubmitBookmark = e => {
     e.preventDefault();
+    let Token = localStorage.getItem("token");
     const id = Math.floor(Math.random() * 10);
     const bookmark = {
       Id: id,
@@ -42,7 +43,7 @@ class AddBookmark extends Component {
       Url: this.state.url
     };
     axios
-      .post("/bookmark.json", bookmark)
+      .post("/bookmark.json?auth=" + Token, bookmark)
       .then(res => {
         this.setState({
           isPosted: true

@@ -1,11 +1,10 @@
-import React from "react";
-import Navigation from "../Navigation/Navigation";
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
-const Signout = props => (
-  <div>
-    <Navigation />
-    <h3>Signout</h3>
-  </div>
-);
+class Signout extends Component {
+  render() {
+    return <Redirect to="/" />;
+  }
+}
 
 export default Signout;
