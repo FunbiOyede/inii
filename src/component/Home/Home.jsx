@@ -18,11 +18,13 @@ class Home extends Component {
       isAdd: false,
       error: false,
       hideMessage: true,
-      isDeleted: false
+      isDeleted: false,
+      token: null
     };
   }
 
   fetchBookmarks = token => {
+    console.log(token);
     axios
       .get("/bookmark.json?auth=" + token)
       .then(res => {
@@ -82,7 +84,7 @@ class Home extends Component {
       });
     }, 2000);
 
-    this.fetchBookmarks(this.props.token);
+    this.fetchBookmarks(localStorage.getItem("token"));
   }
 
   render() {

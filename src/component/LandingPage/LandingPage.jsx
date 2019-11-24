@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import styles from "./LandingPage.module.css";
 import BookmarkImage from "../../assets/landing_save_anything.png";
-import { connect } from "react-redux";
-import * as ActionCreators from "../../store/Actions/ActionCreator";
+
 class LandingPage extends Component {
   toLoginPage = () => {
     this.props.history.push("/login");

@@ -1,11 +1,22 @@
 import * as ActionTypes from "../Actions/ActionTypes";
 import axios from "axios";
+import { persistUserAuthDetails } from "../../Helper/constants";
+
+/**
+ * @function starts authentication process for registartion
+ */
 
 export const StartRegistration = () => {
   return {
     type: ActionTypes.START_REGISTRATION
   };
 };
+
+/**
+ *
+ * @param {object} response
+ * @returns {object}
+ */
 
 export const registrationSuccess = response => {
   return {
@@ -15,12 +26,19 @@ export const registrationSuccess = response => {
   };
 };
 
+/**
+ *
+ * @param {object} response
+ * @returns {object}
+ */
+
 export const registrationFailed = response => {
   return {
     type: ActionTypes.REGISTRATION_FAILED,
     errorMessage: response.message
   };
 };
+
 /**
  *
  * @param {string} username
@@ -43,9 +61,12 @@ export const getUserDetailRegister = (username, email, password) => {
         userAuthDetails
       )
       .then(response => {
+        console.log(response.data);
         dispatch(registrationSuccess(response.data));
+        persistUserAuthDetails(response.data);
       })
       .catch(error => {
+        console.log(error.response);
         dispatch(registrationFailed(error.response.data.error));
       });
   };
