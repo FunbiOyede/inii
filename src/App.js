@@ -8,7 +8,7 @@ import Login from "././component/Login/Login";
 import Register from "././component/Register/Register";
 import Hoc from "./HOC/hoc";
 
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
 class App extends Component {
   render() {
     // let routerGaurds = (
@@ -46,10 +46,10 @@ class App extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     isAuthtenticated: state.token !== null
-//   };
-// };
+const mapStateToProps = state => {
+  return {
+    isAuthtenticated: state.token !== null
+  };
+};
 
-export default App;
+export default connect(mapStateToProps)(App);

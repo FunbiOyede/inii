@@ -1,21 +1,21 @@
 language: node_js
 node_js:
-- 12.6.0
+  - 12.6.0
 cache: yarn
 
 install:
-#install dependecies
+  #install dependecies
   - yarn install
 
 script:
-# build process
-- yarn test
-- yarn run build
+  # build process
+  - yarn test
+  - yarn run build
 
 deploy:
   provider: heroku
   api_key:
-    secure:  0b254b09-7f84-45ff-8a00-3e5e9269fb3c
+    secure: 0b254b09-7f84-45ff-8a00-3e5e9269fb3c
   app: inii
   on:
-   repo: FunbiOyede/inii
+    repo: FunbiOyede/inii
