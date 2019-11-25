@@ -5,7 +5,8 @@ const initialState = {
   userID: null,
   isAuth: false,
   errorMessage: "",
-  isError: false
+  isError: false,
+  isLogged: false
 };
 
 export const UserDetails = (state = initialState, action) => {
@@ -19,6 +20,22 @@ export const UserDetails = (state = initialState, action) => {
   }
 
   if (action.type === ActionTypes.REGISTRATION_FAILED) {
+    return {
+      ...state,
+      isError: true,
+      errorMessage: ErrorHandler(action.errorMessage)
+    };
+  }
+
+  if (action.type === ActionTypes.LOGIN_SUCCESS) {
+    return {
+      ...state,
+      isLogged: true
+    };
+  }
+
+  if (action.type === ActionTypes.LOGIN_FAILED) {
+    console.log("ehy");
     return {
       ...state,
       isError: true,

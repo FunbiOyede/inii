@@ -23,9 +23,9 @@ class Home extends Component {
     };
   }
 
-  fetchBookmarks = token => {
+  fetchBookmarks = () => {
     axios
-      .get("/bookmark.json?auth=" + token)
+      .get("/bookmark.json")
       .then(res => {
         let fetchedBookmarks = res.data;
         let bookmarks;
@@ -45,7 +45,6 @@ class Home extends Component {
           error: true
         });
         console.log(err);
-        // console.log(err.response.data.error);
       });
   };
 
@@ -81,9 +80,9 @@ class Home extends Component {
       this.setState({
         isLoad: false
       });
-    }, 2000);
+    }, 3000);
 
-    this.fetchBookmarks(localStorage.getItem("token"));
+    this.fetchBookmarks();
   }
 
   render() {

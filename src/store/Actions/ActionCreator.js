@@ -61,54 +61,56 @@ export const getUserDetailRegister = (username, email, password) => {
         userAuthDetails
       )
       .then(response => {
-        console.log(response.data);
         dispatch(registrationSuccess(response.data));
         persistUserAuthDetails(response.data);
       })
       .catch(error => {
-        console.log(error.response);
         dispatch(registrationFailed(error.response.data.error));
       });
   };
 };
 
-// export const getUserDetailLogin = (email, password) => {
-//   return dispatch => {
-//     dispatch(startAuthentication());
-//     const loginDetails = {
-//       email: email,
-//       password: password,
-//       returnSecureToken: true
-//     };
+export const loginProcess = () => {
+  return {
+    type: ActionTypes.START_LOGIN
+  };
+};
 
-//     axios
-//       .post(
-//         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCj5ZSgS3NPkegGkV4-SoCHkN-8WbJBd4U",
-//         loginDetails
-//       )
-//       .then(response => {
-//         console.log(response);
+export const successfulLogin = response => {
+  return {
+    type: ActionTypes.LOGIN_SUCCESS,
+    idToken: response.idToken,
+    userID: response.localId
+  };
+};
 
-//         persistUserAuthDetails(
-//           response.data.idToken,
-//           response.data.expiresIn,
-//           response.data.localId
-//         );
-//         dispatch(
-//           authenticationPassedAndSaveToken(
-//             response.data.idToken,
-//             response.data.localId
-//           )
-//         );
-//         dispatch(handleAuthTimeout(response.data.expiresIn));
-//       })
-//       .catch(error => {
-//         console.log(error.response);
-//         dispatch(authenticationFailed(error.response.data.error.message));
-//       });
-//   };
-// };
+export const failedLogin = response => {
+  return {
+    type: ActionTypes.LOGIN_FAILED,
+    errorMessage: response.message
+  };
+};
 
-//  dispatch(authenticationPassed(response.data));
-//  dispatch(registered(response.data.idToken));
-// dispatch(authenticationFailed(error.response.data.error.message));
+export const getUserDetailLogin = (email, password) => {
+  return dispatch => {
+    dispatch(loginProcess());
+    const loginDetails = {
+      email: email,
+      password: password,
+      returnSecureToken: true
+    };
+
+    axios
+      .post(
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCj5ZSgS3NPkegGkV4-SoCHkN-8WbJBd4U",
+        loginDetails
+      )
+      .then(response => {
+        dispatch(successfulLogin(response.data));
+        persistUserAuthDetails(response.data);
+      })
+      .catch(error => {
+        dispatch(failedLogin(error.response.data.error));
+      });
+  };
+};
