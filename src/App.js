@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
-
-import { connect } from "react-redux";
 import AddBookmark from "./container/NewBookmark/AddBookmark";
 import Home from "././component/Home/Home";
 import Error from "././component/Error/Error";
@@ -30,10 +28,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isAuthenticated: state.token !== null
-  };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;

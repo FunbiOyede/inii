@@ -35,7 +35,6 @@ export const UserDetails = (state = initialState, action) => {
   }
 
   if (action.type === ActionTypes.LOGIN_FAILED) {
-    console.log("ehy");
     return {
       ...state,
       isError: true,

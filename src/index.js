@@ -13,7 +13,6 @@ axios.interceptors.request.use(
     return request;
   },
   err => {
-    console.log(err);
     return Promise.reject(err);
   }
 );
@@ -23,7 +22,6 @@ axios.interceptors.response.use(
     return response;
   },
   err => {
-    console.log(err);
     return Promise.reject(err);
   }
 );
