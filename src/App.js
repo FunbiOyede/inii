@@ -3,24 +3,27 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import AddBookmark from "./container/NewBookmark/AddBookmark";
 import Home from "././component/Home/Home";
 import Error from "././component/Error/Error";
-import LandingPage from "././component/LandingPage/LandingPage";
-import Login from "././component/Login/Login";
 import Register from "././component/Register/Register";
-import signout from "./component/Signout/Signout";
-
+const Login = React.lazy(() => import("././component/Login/Login"));
+const Signout = React.lazy(() => import("./component/Signout/Signout"));
+const LandingPage = React.lazy(() =>
+  import("././component/LandingPage/LandingPage")
+);
 class App extends Component {
   render() {
     return (
       <div>
         <BrowserRouter>
           <Switch>
-            <Route path="/home" exact component={Home} />
-            <Route path="/AddBookmark" exact component={AddBookmark} />
-            <Route path="/signout" exact component={signout} />
-            <Route path="/" exact component={LandingPage} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/register" exact component={Register} />
-            <Route component={Error} />
+            <React.Suspense fallback={<h4>Loading...</h4>}>
+              <Route path="/home" exact component={Home} />
+              <Route path="/AddBookmark" exact component={AddBookmark} />
+              <Route path="/signout" exact component={Signout} />
+              <Route path="/" exact component={LandingPage} />
+              <Route path="/login" exact component={Login} />
+              <Route path="/register" exact component={Register} />
+              <Route component={Error} />
+            </React.Suspense>
           </Switch>
         </BrowserRouter>
       </div>

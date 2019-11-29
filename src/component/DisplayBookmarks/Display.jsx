@@ -23,7 +23,7 @@ class Display extends Component {
           >
             Visit
           </a>
-          {/* <button onClick={() =>this.props.deleteBookmark(this.props.id)}>Delete</button> */}
+
           <Icon
             type="delete"
             onClick={() => this.props.deleteBookmark(this.props.id)}

@@ -8,7 +8,7 @@ import { Icon } from "antd";
 import { connect } from "react-redux";
 import style from "./Home.module.css";
 
-class Home extends Component {
+export class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
