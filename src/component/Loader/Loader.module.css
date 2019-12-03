@@ -12,8 +12,8 @@
   height: 146px;
   margin: 1px;
   border-radius: 50%;
-  border: 5px solid #c94b4b;
-  border-color: #4b134f transparent #c94b4b transparent;
+  border: 5px solid #2a364a;
+  border-color: #4b134f transparent #2a364a transparent;
   animation: lds 1.2s linear infinite;
 }
 @keyframes lds {

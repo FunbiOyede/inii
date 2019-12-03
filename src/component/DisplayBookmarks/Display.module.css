@@ -1,21 +1,23 @@
 .Bookmark {
   margin: 0 20px 15px 20px;
-  background: #2a364a;
+  background: white;
   padding: 15px;
-  color: white;
-  border-radius: 6px;
+  color: #2a364a;
+
   box-sizing: border-box;
   vertical-align: middle;
   float: left;
-  width: 45%;
+  width: 340.333px;
+  padding: 0;
+  border: 1px solid #2a364a;
 }
 
 @media (max-width: 500px) {
   .Bookmark {
     margin: 0 20px 15px 20px;
-    background: #4b134f;
+    background: white;
     padding: 37px;
-    color: white;
+    color: #2a364a;
     border-radius: 6px;
     box-sizing: border-box;
     vertical-align: middle;

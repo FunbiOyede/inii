@@ -43,7 +43,7 @@ class AddBookmark extends Component {
       Url: this.state.url
     };
     axios
-      .post("/bookmark.json?auth=" + Token, bookmark)
+      .post("/bookmark.json", bookmark)
       .then(res => {
         this.setState({
           isPosted: true

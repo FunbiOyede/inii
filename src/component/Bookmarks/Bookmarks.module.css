@@ -10,4 +10,9 @@
   width: calc(100% - 360px);
   margin: 0 166px;
   box-sizing: border-box;
+
+  padding: 10px 0;
+  box-sizing: border-box;
+  position: relative;
+  /* width: calc(100% - 260px); */
 }

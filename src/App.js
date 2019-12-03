@@ -4,11 +4,10 @@ import AddBookmark from "./container/NewBookmark/AddBookmark";
 import Home from "././component/Home/Home";
 import Error from "././component/Error/Error";
 import Register from "././component/Register/Register";
+import LandingPage from "../src/component/LandingPage/LandingPage";
 const Login = React.lazy(() => import("././component/Login/Login"));
 const Signout = React.lazy(() => import("./component/Signout/Signout"));
-const LandingPage = React.lazy(() =>
-  import("././component/LandingPage/LandingPage")
-);
+
 class App extends Component {
   render() {
     return (
@@ -22,7 +21,7 @@ class App extends Component {
               <Route path="/" exact component={LandingPage} />
               <Route path="/login" exact component={Login} />
               <Route path="/register" exact component={Register} />
-              <Route component={Error} />
+              {/* <Route component={Error} /> */}
             </React.Suspense>
           </Switch>
         </BrowserRouter>

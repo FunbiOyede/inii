@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Icon } from "antd";
 import styles from "./Display.module.css";
-
 class Display extends Component {
   render() {
     return (
@@ -13,13 +12,13 @@ class Display extends Component {
         <div
           style={{
             display: "flex",
-            justifyContent: "space-around",
-            marginTop: "10px"
+            justifyContent: "space-evenly",
+            paddingBottom: "10px"
           }}
         >
           <a
             href={this.props.Url}
-            style={{ textDecoration: "none", color: "white" }}
+            style={{ textDecoration: "none", color: "#2a364a" }}
           >
             Visit
           </a>

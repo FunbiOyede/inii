@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Display from "../DisplayBookmarks/Display";
+import Grid from "@material-ui/core/Grid";
 import styles from "./Bookmarks.module.css";
 
 class Bookmarks extends Component {
@@ -17,7 +18,11 @@ class Bookmarks extends Component {
       );
     });
 
-    return <div className={styles.Bookmarks}>{bookmark}</div>;
+    return (
+      <Grid container direction="row" justify="flex-start" alignItems="center">
+        {bookmark}
+      </Grid>
+    );
   }
 }
 

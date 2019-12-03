@@ -40,6 +40,8 @@
   text-align: center;
   font-size: 30px;
   font-weight: 400;
+  color: #2a364a;
+  letter-spacing: 1.78px;
 }
 
 @media (max-width: 500px) {
