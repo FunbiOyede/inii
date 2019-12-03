@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Display from "../DisplayBookmarks/Display";
 import Grid from "@material-ui/core/Grid";
-import styles from "./Bookmarks.module.css";
 
 class Bookmarks extends Component {
   render() {

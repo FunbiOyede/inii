@@ -5,7 +5,7 @@ import Navigation from "../../component/Navigation/Navigation";
 import styles from "./AddBookmark.module.css";
 import { ValidateUrl } from "../../Helper/Validate";
 
-class AddBookmark extends Component {
+export class AddBookmark extends Component {
   state = {
     title: "",
     description: "",
@@ -34,7 +34,7 @@ class AddBookmark extends Component {
 
   SubmitBookmark = e => {
     e.preventDefault();
-    let Token = localStorage.getItem("token");
+    // let Token = localStorage.getItem("token");
     const id = Math.floor(Math.random() * 10);
     const bookmark = {
       Id: id,

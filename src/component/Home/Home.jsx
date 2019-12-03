@@ -3,9 +3,7 @@ import Loader from "../Loader/Loader";
 import axios from "../../axios.config";
 import Bookmarks from "../Bookmarks/Bookmarks";
 import Navigation from "../Navigation/Navigation";
-
 import { Icon } from "antd";
-import { connect } from "react-redux";
 import style from "./Home.module.css";
 
 export class Home extends Component {
@@ -142,10 +140,4 @@ export class Home extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    token: state.token
-  };
-};
-
-export default connect(mapStateToProps)(Home);
+export default Home;
