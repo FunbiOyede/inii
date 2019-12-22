@@ -43,3 +43,12 @@ INII is a JavaScript-based application. It is built with popular JS library Reac
 ## Demo
 
 Demo at [INII](http://inii.herokuapp.com/)
+
+### Roadmap
+
+Here's a rough roadmap of things to come
+
+- [ ] Move app tech stack to Mern
+- [ ] Improve Accessibility
+- [ ] Improve Performance
+- [ ] Use of Hooks
