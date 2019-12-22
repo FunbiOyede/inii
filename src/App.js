@@ -14,13 +14,13 @@ class App extends Component {
       <div>
         <BrowserRouter>
           <Switch>
+            <Route path="/" exact component={LandingPage} />
             <Route path="/home" exact component={Home} />
             <Route path="/AddBookmark" exact component={AddBookmark} />
             <Route path="/signout" exact component={Signout} />
-            <Route path="/" exact component={LandingPage} />
             <Route path="/login" exact component={Login} />
-            <Route component={Error} />
             <Route path="/register" exact component={Register} />
+            <Route component={Error} />
           </Switch>
         </BrowserRouter>
       </div>
