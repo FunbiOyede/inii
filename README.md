@@ -48,7 +48,7 @@ Demo at [INII](http://inii.herokuapp.com/)
 
 Here's a rough roadmap of things to come
 
-- [ ] Move app tech stack to Mern
+- [ ] Move app tech stack to MERN
 - [ ] Improve Accessibility
 - [ ] Improve Performance
 - [ ] Use of Hooks
